@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wycieczka matematyczna</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+		body{
+			background: rgb(3,0,14);
+			background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
+			font-family: 'Lato', sans-serif;
+		}
+
+		h1{
+			color: white;
+			font-size: 60px;
+			margin-top: 28%;
+		}
+
+		.earth{
+			aspect-ratio : 1 / 1;
+			max-width: 400px;
+			background: white;
+			border-radius: 200px;
+			margin-left: 20px;
+			margin-right: 20px;
+			margin-top: 18%;
+			box-shadow: 0px 0px 60px 1px rgba(187, 187, 204, 1);
+			margin-bottom: 20px;
+		}
+
+		#earth{
+			max-width: 400px;
+			aspect-ratio : 1 / 1;
+			background: rgb(233,233,233);
+			background: radial-gradient(circle, rgba(233,233,233,1) 0%, rgba(103,103,103,1) 100%);
+			border-radius: 200px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 18%;
+			overflow: hidden;
+			transform: translate3d(0,0,0);
+			box-shadow: inset 0px 0px 25px 20px rgba(17, 17, 24, 1);
+		}
+
+		#img-earth{
+			position: fixed;
+			animation-name: earth;
+		  	animation-duration: 6s;
+		  	animation-iteration-count: infinite;
+		  	animation-timing-function: linear;
+		}
+
+		#img-earth-second{
+			position: fixed;
+			animation-name: earthsecond;
+		  	animation-duration: 6s;
+		  	animation-iteration-count: infinite;
+		  	animation-timing-function: linear;
+		}
+
+		@keyframes earth {
+		  from {transform: scale(0.6) translate(-50%, -180px);}
+		  to {transform: scale(0.6) translate(-150%, -180px);}
+		}
+
+		@keyframes earthsecond {
+		  from {transform: scale(0.6) translate(50%, -180px);}
+		  to {transform: scale(0.6) translate(-50%, -180px);}
+		}
+
+		.start-button{
+			border: 5px solid white;
+			font-size: 40px;
+			color: white;
+			max-width: 150px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 50px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="col-12 col-md-6" style="display: block; float: left; text-align: center;">
+		<center>
+			<h1>Σatematyczna wycieczka</h1>
+			<div class="start-button">START</div>
+		</center>
+	</div>
+	<div class="col-12 col-md-6" style="display: block; float: left;">
+		<center>
+			<div class="earth">
+				<div id="earth">
+					<img id="img-earth" src="world-map.png">
+					<img id="img-earth-second" src="world-map.png">
+				</div>
+			</div>
+		</center>
+	</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
