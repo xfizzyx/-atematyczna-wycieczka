@@ -1,0 +1,17 @@
+{
+	"tasks": [
+		{
+			"title": "Nazwa zagadki",
+			"question": "Ile to 2+2?",
+			"answer": "4",
+			"location": "https://goo.gl/maps/ZHLkTSGuFSshMPZz6",
+			"picture": "biesiadowo.png"
+		}
+	],
+	"0": [
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Jeżeli potrzebujesz pomocy w dotarciu do tego punktu <a href='https://goo.gl/maps/gRCPUPCPnTJAfV5bA' target='_blank'>kliknij tutaj!</a>"
+		}
+	]
+}

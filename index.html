@@ -76,7 +76,7 @@
 			position: fixed;
 			transform: scale(0.6) translate(-100%, -180px);
 			animation-name: earth;
-		  	animation-duration: 6s;
+		  	animation-duration: 10s;
 		  	animation-iteration-count: infinite;
 		  	animation-timing-function: linear;
 		  	transition: ease 2s all;
@@ -87,7 +87,7 @@
 			transform: scale(0.6) translate(0%, -180px);
 			position: fixed;
 			animation-name: earthsecond;
-		  	animation-duration: 6s;
+		  	animation-duration: 10s;
 		  	animation-iteration-count: infinite;
 		  	animation-timing-function: linear;
 		  	transition: ease 2s all;
@@ -143,9 +143,8 @@
 			background: rgb(3,0,14);
 			background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
 			transition: ease 2.5s all;
-			transition-delay: 0.5s;
 			position: absolute;
-			z-index: 1;
+			z-index: 3;
 			top: 0;
 			color: white;
 		}
@@ -357,6 +356,36 @@
             }
          }
 
+         #app-container{
+			display: none;
+			opacity: 0;
+			width: 100%;
+			height: 100%;
+			background: rgb(3,0,14);
+			background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
+			transition: ease 2.5s all;
+			transition-delay: 0.5s;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			color: white;
+		}
+
+		#grodzisk-img{
+			animation-name: zoom;
+		  	animation-duration: 5s;
+		  	animation-timing-function: linear;
+		  	animation-delay: 5s;
+		}
+
+
+		@keyframes zoom {
+		  from {transform: scale(1); 
+        
+        }
+		  to {transform: scale(4)}
+		}
+
 	</style>
 </head>
 <body>
@@ -379,10 +408,9 @@
 			</center>
 		</div>
 	</div>
-	<main id="star-scene" class="scene"></main>
 	<div id="instruction">
 		<div id="instruction-1" class="col-10 col-md-4 instruction-div" style="margin-left: auto; margin-right: auto; text-align: justify; opacity: 0; transition: ease 1s all;">
-			<h2>Instrukcja</h2>
+			<h2>Witaj!</h2>
 			<span class="instruction-text">Wycieczka matematyczna polega na przejściu przez punkty, które zostały rozłożone w centrum Grodziska Mazowieckiego. Czekają tam na Ciebie różnego rodzaju zadania, które pozwolą Ci odnaleźć następny cel.</span>
 			<div id="instruction-1-btn" class="button-main" style="font-size: 20px">Dalej</div>
 		</div>
@@ -397,7 +425,7 @@
 	      	<div class="instruction-text-div col-12 col-md-6" style="margin-top: 20px; display: block; float: left;">
 	      		<div class="instruction-text">
 		      		<span>
-					Droga do następnego celu będzie pokazywana poprzez linie tak jak na rysunku. Gdy bedziesz na punkcie zaznaczoną czerwoną kropką nacisnij na nia!</span>
+					Droga do następnego celu będzie pokazywana poprzez linie tak jak na rysunku. Gdy bedziesz na punkcie zaznaczoną czerwoną kropką <b>nacisnij na nią</b>, aby przejść dalej!</span>
 				</div>
 			</div>
 		</div>
@@ -406,13 +434,13 @@
 			<div class="col-12 col-md-6" style="display: block; float: left;">
 				<img class="app-img" id="instruction-3-img" src="tutorial-2-img.png" width="884" height="884" usemap = "#instruction-3-map">
 				<map name = "instruction-3-map">
-		         <area shape = "circle" coords = "215,475,100" />
+		         <area shape = "circle" coords = "60,420,100" />
 		      </map>
 		  	</div>
 	      	<div class="instruction-text-div col-12 col-md-6" style="margin-top: 20px; display: block; float: left;">
 	      		<div class="instruction-text">
 		      		<span>
-					Droga do następnego celu będzie pokazywana poprzez linie tak jak na rysunku. Gdy bedziesz na punkcie zaznaczoną czerwoną kropką nacisnij na nia!</span>
+					Świetnie! Teraz jesteś gotowy na edukacyjną podróż!</span>
 				</div>
 			</div>
 		</div>
@@ -423,6 +451,7 @@
 	      <span></span>
 	   </div>
 	</div>
+<main id="star-scene" class="scene"></main>
 <script type="text/javascript">
 
 	window.addEventListener("load", (event) => {
@@ -432,23 +461,24 @@
 	  	const scene = document.querySelector('.scene');
 		const CreateDiv = () =>{
 		    for (let i = 0; i < 100; i++){
-		        scene.innerHTML += "<div></div>";
+		        scene.innerHTML += "<div class='star-div'></div>";
 		    }
 		}
 		CreateDiv();
-		const stars = document.querySelectorAll('div');
-			stars.forEach( star => {
-				let x = `${Math.random() * 200}vmax`;
+		const stars = document.getElementsByClassName("star-div");
+
+			for (let i = 0; i < stars.length; i++) {
+			  	let x = `${Math.random() * 200}vmax`;
 				let y = `${Math.random() * 100}vh`;
 				let z = `${Math.random() * 200 - 100}vmin`;
 				let rx = `${Math.random() * 360}deg`;
-				star.style.setProperty('--x', x);
-				star.style.setProperty('--y', y);
-				star.style.setProperty('--z', z);
-				star.style.setProperty('--rx', rx);
+				stars[i].style.setProperty('--x', x);
+				stars[i].style.setProperty('--y', y);
+				stars[i].style.setProperty('--z', z);
+				stars[i].style.setProperty('--rx', rx);
 				let delay = `${Math.random() * 1.5}s`;
-				star.style.animationDelay = delay;
-			})
+				stars[i].style.animationDelay = delay;
+			}
 
 		document.getElementById('loading-div').style.opacity = "0";
 		setTimeout(function(){document.getElementById('loading-div').style.display="none"}, 1000);
@@ -461,8 +491,12 @@
 	if(document.getElementById('start-button').addEventListener) {
 		document.getElementById('start-button').addEventListener("click", function() {
 			document.getElementById("star-scene").style.display = "block";
-			setTimeout(function(){document.getElementById('star-scene').style.opacity = "1";}, 100);
-			setTimeout(function(){document.getElementById('start-container').style.display="none"}, 3000);
+			setTimeout(function(){
+				document.getElementById('star-scene').style.opacity = "1";
+				setTimeout(function(){
+					document.getElementById('start-container').style.display="none"
+				}, 2000);
+			}, 100);
 			document.getElementById('instruction').style.display = "block";
 			if(screen.width < 768){
 				var x = document.getElementById('h1-container').clientHeight + document.getElementById('earth-container').clientHeight/2 - screen.height/2;	
@@ -478,9 +512,11 @@
 
 			setTimeout(function(){document.getElementById('star-scene').style.opacity = "0";
 
-				setTimeout(function(){document.getElementById('star-scene').remove(); 
+				setTimeout(function(){
+					document.getElementById('star-scene').style.display = "none"; 
 					document.getElementById('instruction-1').style.opacity = "1";
-				}, 1000);}, 3000);
+				}, 1000);
+			}, 3000);
 			
 		});
 	}
@@ -493,7 +529,25 @@
 				$('img[usemap]').rwdImageMaps();
 			    $('area').on('click', function() {
 					document.getElementById('instruction-3').style.display = "block";
-					setTimeout(function(){document.getElementById('instruction-3').style.opacity = "1";}, 100);
+					setTimeout(function(){document.getElementById('instruction-3').style.opacity = "1";
+						$('img[usemap]').rwdImageMaps();
+					    $('area').on('click', function() {
+							document.getElementById("star-scene").style.display = "block";
+							setTimeout(function(){ 
+								document.getElementById("instruction").style.opacity = "0";
+								setTimeout(function(){
+									document.getElementById('star-scene').style.opacity = "1";
+									setTimeout(function(){
+										document.getElementById('star-scene').style.opacity = "0";
+										document.getElementById('instruction').style.display = "none";
+										setTimeout(function(){
+											window.location.href = "app.html";
+										}, 1000);
+									}, 3000);
+								}, 1000);
+							}, 100);
+						});
+					}, 100);
 					document.getElementById('instruction-2').style.opacity = "0";
 				});
 			}, 100);
