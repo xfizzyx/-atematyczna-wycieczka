@@ -4,11 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Wycieczka matematyczna</title>
-	<title>Wycieczka matematyczna</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/fontello.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 		html, body {margin: 0; height: 100%; overflow: hidden}
 		body{
 			background: rgb(3,0,14);
@@ -91,15 +91,17 @@
 		#tasks{
 			opacity: 0;
 			background: rgba(255, 255, 255, 0.3);
-			border-radius: 16px;
+			border-radius: 10px;
 			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 			backdrop-filter: blur(5.6px);
 			-webkit-backdrop-filter: blur(5.6px);
 			transition: ease 1s all;
 			border: 1px solid rgba(255, 255, 255, 0.3);
 			margin-left: auto; margin-right: auto;
-			height: 90%;
-			margin-top: 5%;
+			padding-bottom: 50px;
+			margin-top: 2%;
+			overflow: auto;
+			max-height: 92%;
 		}
 
 		#stop-game{
@@ -111,13 +113,32 @@
 			margin-right: auto;
 			display: block;
 			text-align: right;
+			margin-top: 5px;
 		}
 
-		#x-icon:after{
-		  display: inline-block;
-		  content: "\00d7";
-		  transform: scale(1.5);
-		  text-align: right;
+		#x-icon{
+			width: 50%;
+			float: left;
+			display: block;
+			font-size: 25px;
+			height: 45px;
+			display: inline-block;
+		}
+
+		#x-icon i{
+			position:relative;
+    top: calc(50% - 20px);
+		}
+
+		#back-icon{
+			width: 50%;
+			float: left;
+			display: block;
+			height: 45px;
+		}
+
+		#back-icon:hover{
+			cursor: pointer;
 		}
 
 		#title{
@@ -147,12 +168,244 @@
 			margin-left: auto;
 			margin-right: auto;
 			color: white;
+			font-size: 15px;
+			text-align: center;
+			font-weight: lighter;
+		}
+
+		@property --angle {
+		  syntax: '<angle>';
+		  initial-value: 90deg;
+		  inherits: true;
+		}
+
+		@property --gradX {
+		  syntax: '<percentage>';
+		  initial-value: 50%;
+		  inherits: true;
+		}
+
+		@property --gradY {
+		  syntax: '<percentage>';
+		  initial-value: 0%;
+		  inherits: true;
+		}
+
+		:root {
+			--d: 2500ms;
+			--angle: 90deg;
+			--gradX: 100%;
+			--gradY: 50%;
+			--c1: rgba(168, 239, 255, 1);
+			--c2: rgba(168, 239, 255, 0.1);
+		}
+
+		.box {
+			font-size: 3vw;
+			margin: max(1rem, 3vw);
+			border: 0.35rem solid;
+			padding: 3vw;
+			border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+			animation: borderRotate var(--d) linear infinite forwards;
+		}
+
+		@keyframes borderRotate {
+			100% {
+				--angle: 420deg;
+			}
+		}
+
+		#button-main{
+			top: 20px;
+			font-size: 22px;
+			font-family: "JetBrains Mono",monospace;
+			color: white;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 30px;
+			
+			text-align: center;
+			overflow: hidden;
+			width: 130px;
+		  height: 40px;
+		  margin: 0 auto;
+		  position: relative;
+		  overflow: hidden;
+		}
+
+		.main-element:hover{
+			background: white;
+			color: #020011;
+			cursor: pointer;
+		}
+
+		.main-element {
+		  position: absolute;
+		  top: 2px;
+		  left: 2px;
+		  display: block;
+		  height: 36px;
+		  width: 126px;
+		  margin: auto;
+		  align-self: center;
+		  background: rgb(2 0 17 / 85%);
+		  transition: ease .5s all;
+		}
+
+		.border {
+		  position: absolute;
+		  display: block;
+		  top: -100%;
+		  left: -50%;
+		  display: block;
+		  height: 300%;
+		  width: 200%;
+		  transform: rotate(-45deg);
+		  overflow: hidden;
+		  background: linear-gradient(to right, #fff 20%, #fff 40%, #8caeec 50%, #8caeec 55%, #fff 70%, #fff 100%);
+		  background-size: 200% auto;
+		  
+		  animation: shine 3s linear infinite;
+		}
+
+		@keyframes shine {
+		    to {
+		      background-position: 200% center;
+		    }
+		  }
+
+		#input-app{
+			margin-left: auto;
+			margin-right: auto;
+			margin-top:10px;
+		}
+
+		.modal {
+		    display: none; /* Hidden by default */
+		    position: fixed; /* Stay in place */
+		    z-index: 1; /* Sit on top */
+		    padding-top: 100px; /* Location of the box */
+		    left: 0;
+		    top: 0;
+		    width: 100%; /* Full width */
+		    height: 100%; /* Full height */
+		    overflow: auto; /* Enable scroll if needed */
+		    background-color: rgb(0,0,0); /* Fallback color */
+		    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+		}
+
+		/* Modal Content (image) */
+		.modal-content {
+		    margin: auto;
+		    display: block;
+		    width: 75%;
+		    //max-width: 75%;
+		}
+
+		/* Caption of Modal Image */
+		#caption {
+		    margin: auto;
+		    display: block;
+		    width: 80%;
+		    max-width: 700px;
+		    text-align: center;
+		    color: #ccc;
+		    padding: 10px 0;
+		    height: 150px;
+		}
+
+		/* Add Animation */
+		.modal-content, #caption {
+		    -webkit-animation-name: zoom;
+		    -webkit-animation-duration: 0.6s;
+		    animation-name: zoom;
+		    animation-duration: 0.6s;
+		}
+
+		.out {
+		  animation-name: zoom-out;
+		  animation-duration: 0.6s;
+		}
+
+		@-webkit-keyframes zoom {
+		    from {-webkit-transform:scale(1)}
+		    to {-webkit-transform:scale(2)}
+		}
+
+		@keyframes zoom {
+		    from {transform:scale(0.4)}
+		    to {transform:scale(1)}
+		}
+
+		@keyframes zoom-out {
+		    from {transform:scale(1)}
+		    to {transform:scale(0.4); opacity: 0}
+		}
+
+		/* The Close Button */
+		.close {
+		    position: absolute;
+		    top: 15px;
+		    right: 35px;
+		    color: #f1f1f1;
+		    font-size: 40px;
+		    font-weight: bold;
+		    transition: 0.2s;
+		}
+
+		.close:hover,
+		.close:focus {
+		    color: #bbb;
+		    text-decoration: none;
+		    cursor: pointer;
+		}
+
+		/* 100% Image Width on Smaller Screens */
+		@media only screen and (max-width: 700px){
+		    .modal-content {
+		        width: 100%;
+		    }
+		}
+
+		#input-app{
+			border: 2px solid white;
+			outline: none;
+			transition: ease 1s all;
+		}
+
+		#input-app:focus{
+			border: 2px solid white;
+			-webkit-box-shadow: 0px 0px 24px -7px rgba(153, 177, 200, 1);
+			-moz-box-shadow: 0px 0px 24px -7px rgba(153, 177, 200, 1);
+			box-shadow: 0px 0px 24px -7px rgba(153, 177, 200, 1);
+		}
+
+		area:hover{
+			cursor: pointer;
+		}
+
+		#thank-you-div{
+			display: none;
+			opacity: 0;
+			transition: ease 1s all;
+			margin-top: 20px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		#thank-you-div, h1{
+			color: white;
+			font-weight: bold;
+		}
+
+		#end-div{
+			font-weight: 300;
 		}
 
 	</style>
 </head>
 <body>
-
 <div id="app-container">
 	<div id="choose-mode" class="col-10 col-md-4 col-lg-2">
 		<div id="choose-options">
@@ -167,11 +420,40 @@
 		</div>
 	</div>
 	<div id="tasks" class="col-11 col-md-6 col-lg-4">
-		<div id="stop-game"><a onclick="deleteAllCookies();"><div id="x-icon" style="text-align: right"></div></a></div>
+		<div id="stop-game">
+			<div id="back-icon" style="text-align: left">
+				<a id="back-icon-a" onclick="deleteAllCookies();">
+					<i class="icon-left-open"></i>
+				</a>
+			</div>
+			<div id="x-icon" style="text-align: right">
+				<a onclick="deleteAllCookies();">
+					<i class="icon-cancel"></i>
+				</a>
+			</div>
+		</div>
 		<div id="title"></div>
-		<img src="1.png" style="max-width: 90%;">
+		<img id="img-task" style="max-width: 90%;">
+		<img id="img-way" style="max-width: 90%;" usemap="#point">
+		<map id="point" name="point">
+			<area id="img-area" shape="circle" coords="188, 225, 20"/>
+		</map>
 		<div id="description"></div>
-	</div>
+		<input id="input-app" type="text" placeholder="Odpowiedź" onkeyup="clearInput()"/>
+		<div id="button-main">
+			<div class="border"></div>
+				<a id="button-app">
+	    			<div id="button-text" class="main-element">Dotarłem</div>
+	    		</a>
+	    	</div>
+		</div>
+		<div id="thank-you-div" class="col-11 col-md-6 col-lg-4">
+			<h1>Dziękujemy!</h1>
+			<div id="end-div"></div>
+		</div>
+		<div id="myModal" class="modal">
+		  <img class="modal-content" id="img01">
+		</div>
 </div>
 <script type="text/javascript">
 
@@ -183,16 +465,28 @@
 		}
 	}
 
+	document.getElementById("img-way").addEventListener('load', function(){
+					document.getElementById("img-way").setAttribute("w_width", parseInt(document.getElementById("img-way").naturalWidth, 10));
+					document.getElementById("img-way").setAttribute("w_height", parseInt(document.getElementById("img-way").naturalHeight, 10));
+					$('img[usemap]').rwdImageMaps(1);
+					
+				});
+
 	window.addEventListener("load", (event) => {
 		history.pushState("", document.title, window.location.pathname + window.location.search);
 		if(getCookie("team") == ""){
 			document.getElementById("choose-mode").style.opacity = 1;
 			document.getElementById("tasks").style.display = "none";
 		}else{
-			document.getElementById("title").innerHTML = obj['0'][0]['title'];
-			document.getElementById("description").innerHTML = obj['0'][0]['description'];
+			updateApp("0", 0);
 			document.getElementById("tasks").style.opacity = 1;
 		}
+		if(getCookie("globalTime") == ""){
+			createCookie("globalTime", 0, 1);
+		}
+		let globalTime = setInterval(function(){
+			createCookie("globalTime", parseInt(getCookie("globalTime")) + 1, 1);
+		}, 1000);
 	});
 
 	if(document.getElementById("option-1").addEventListener) {
@@ -218,11 +512,12 @@
 
 
 	function nextModal(x) {
+		createCookie("globalTime", 0, 1);
 		if(x == 1){
 			document.getElementById("choose-mode").style.opacity = 0;
 			document.getElementById("tasks").style.display = "block";
 			setTimeout(function(){
-				updateApp();
+				updateApp("0", 0);
 				document.getElementById("choose-mode").style.display = "none";
 				document.getElementById("tasks").style.opacity = 1;
 			}, 1000);
@@ -287,6 +582,8 @@
 		}
 
 		var obj;
+		var task;
+		let taskTime;
 
 		fetch('./plan.json')
 		  .then(res => res.json())
@@ -295,15 +592,142 @@
 		   });
 
 
-		  function updateApp(){
-		  	document.getElementById("title").innerHTML = obj['0'][0]['title'];
-			document.getElementById("description").innerHTML = obj['0'][0]['description'];
+		  function updateApp(x, y, ox, oy){
+		  	if(y == 0 & x != "tasks"){
+		  		document.getElementById("back-icon").style.opacity = "0";
+		  		document.getElementById("back-icon").style.pointerEvents = "none";
+		  	}else if(x != "tasks"){
+		  		document.getElementById("back-icon").style.pointerEvents = "auto";
+		  		document.getElementById("back-icon").style.opacity = "1";
+		  		document.getElementById("back-icon-a").setAttribute('onclick','updateApp("' + ox + '", ' + (y-1) + ", " + ox + ", " + (y-2) + ')');
+		  	}else{
+		  		document.getElementById("back-icon").style.pointerEvents = "auto";
+		  		document.getElementById("back-icon").style.opacity = "1";
+		  		document.getElementById("back-icon-a").setAttribute('onclick','updateApp("' + ox + '", ' + oy + ", " + ox + ", " + (y-2) + ')');
+		  	}
+		  	if(x != "tasks"){
+		  		clearInterval(taskTime);
+			  	document.getElementById("title").innerHTML = obj[x][y]['title'];
+			  	if(obj[x][y]['maps-link']){
+			  		document.getElementById("description").innerHTML = obj[x][y]['description'] + "</br>Nie wiesz gdzie iść? <a target='_blank' href='" + obj[x][y]['maps-link'] + "'>Kliknij tu</a>";
+			  	}else{
+			  		document.getElementById("description").innerHTML = obj[x][y]['description'];
+			  	}
+				document.getElementById("img-task").style.display = "none";
+				document.getElementById("img-way").style.display = "block";
+				document.getElementById("img-way").src = "./img/" + obj[x][y]['img'];
+				document.getElementById("input-app").style.display = "none";
+				if(obj[x][y]["cords"]){
+					document.getElementById("point").style.display = "block";
+					document.getElementById("img-area").coords = obj[x][y]['cords'];
+					
+					$('area').on('click', function() {
+						if(obj[x][y]["nextCategory"]){
+							updateApp(obj[x][y]['nextCategory'], obj[x][y]['next'], x, y);
+						}else{
+							updateApp(x, y+1, x, y);
+						}
+					});
+				}else{
+					document.getElementById("point").style.display = "none";
+				}
+				if(obj[x][y]["button"] == 1){
+					document.getElementById("button-text").innerHTML = "Dotarłem";
+					document.getElementById("button-main").style.display = "block";
+					if(obj[x][y]["nextCategory"]){
+						document.getElementById("button-app").setAttribute('onclick','updateApp("' + obj[x][y]['nextCategory'] + '", ' + obj[x][y]['next'] + ', "' + x + '", ' + y + ')');
+					}else{
+						document.getElementById("button-app").setAttribute('onclick','updateApp("' + x + '", ' + (y+1) + ', "' + x + '", ' + y + ')');
+					}
+				}else{
+					document.getElementById("button-main").style.display = "none";
+				}
+				
+			}else{
+				if(getCookie("taskTime") == ""){
+					createCookie("taskTime", 0, 1);
+				}
+				taskTime = setInterval(function(){
+				createCookie("taskTime", parseInt(getCookie("taskTime")) + 1, 1);}, 1000);
+				clearInput();
+				document.getElementById("input-app").readOnly = false;
+				document.getElementById("input-app").value = "";
+				document.getElementById("input-app").style.display = "block";
+				document.getElementById("button-main").style.display = "block";
+				document.getElementById("button-text").innerHTML = "Sprawdź";
+				document.getElementById("title").innerHTML = obj[x][y]['title'];
+				document.getElementById("description").innerHTML = obj[x][y]['question'];
+				document.getElementById("img-task").style.display = "block";
+				document.getElementById("img-way").style.display = "none";
+				document.getElementById("img-task").src = "./img/" + obj[x][y]['img'];
+				if(obj[x][y]["img-res"]){
+					document.getElementById("img-task").setAttribute('res', obj[x][y]["img-res"]);
+				}
+				document.getElementById("button-app").setAttribute('onclick','checkAnswer("' + obj[x][y]["answer"] + '", ' + (y + 1) + ', 0)');
+			}
 		  }
+
+		  function checkAnswer(a, x, y){
+		  	if(document.getElementById("input-app").value == a){
+		  		document.getElementById("input-app").style.border = "2px solid rgb(68 255 7)";
+		  		document.getElementById("input-app").style.boxShadow = "0px 0px 24px 0px rgba(35, 241, 21, 1)";
+		  		document.getElementById("input-app").readOnly = true;
+		  		document.getElementById("button-text").innerHTML = "Dalej";
+		  		if(obj[x]){
+		  			document.getElementById("button-app").setAttribute('onclick','updateApp("' + x + '", ' + y + ')');
+		  		}else{
+		  			document.getElementById("button-app").setAttribute('onclick','endApp()');
+		  		}
+		  	}else{
+		  		document.getElementById("input-app").style.border = "2px solid rgb(241, 21, 21)";
+		  		document.getElementById("input-app").style.boxShadow = "0px 0px 24px 0px rgba(241, 21, 21, 1)";
+		  	}
+		  }
+
+		  function endApp(){
+		  	var globalTimeInt = parseInt(getCookie("globalTime"));
+		  	var taskTimeInt = parseInt(getCookie("taskTime"));
+		  	document.getElementById("end-div").innerHTML = "Twój czas w grze to: " + Math.round(globalTimeInt/(60*60) * 100) / 100 + "H, czyli " + Math.round(globalTimeInt/(60)) + "min, czyli " + Math.round(globalTimeInt) + "s.</br>" + "Czas, który poświęciłeś na zadania to: " + Math.round(taskTimeInt/(60*60) * 100) / 100 + "H, czyli " + Math.round(taskTimeInt/(60)) + "min, czyli " + Math.round(taskTimeInt) + "s.</br> Czas w zadaniach stanowią " + Math.round((taskTimeInt/globalTimeInt)*100) + "% Twojego całego czasu.</br>Podczas naszej wycieczki przeszedłeś 4,46km, czyli 4 459m, czyli 2,77mi, czyli 14 631ft.";
+		  	document.getElementById("tasks").style.opacity = 0;
+		  	setTimeout(function(){
+		  		document.getElementById("tasks").style.display = "none";
+		  		document.getElementById("thank-you-div").style.display = "block";
+		  		setTimeout(function(){document.getElementById("thank-you-div").style.opacity = 1;}, 100);
+		  	}, 1000);
+		  }
+
+		  	var modal = document.getElementById('myModal');
+			var img = document.getElementById('img-task');
+			var modalImg = document.getElementById("img01");
+			var captionText = document.getElementById("caption");
+			img.onclick = function(){
+			    modal.style.display = "block";
+			    if(this.hasAttribute('res')){
+			    	modalImg.src = "./img/" + this.getAttribute('res');
+			    }else{
+			    	modalImg.src = this.src;
+			    }
+			}
+
+			modal.onclick = function() {
+			    img01.className += " out";
+			    setTimeout(function() {
+			       modal.style.display = "none";
+			       img01.className = "modal-content";
+			     }, 400);
+			    
+			 }   
+
+
+			 function clearInput(){
+			 	document.getElementById("input-app").style.border = "2px solid white";
+		  		document.getElementById("input-app").style.boxShadow = "none";
+			 }
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="jquery.rwdImageMaps.min.js"></script>
+<script src="jquery.rwdImageMaps.js"></script>
 </body>
 </html>

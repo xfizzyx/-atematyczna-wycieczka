@@ -4,10 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Wycieczka matematyczna</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+		
 		html, body {margin: 0; height: 100%; overflow: hidden}
 		body{
 			background: rgb(3,0,14);
@@ -21,14 +23,15 @@
 		h1{
 			color: white;
 			font-size: 50px;
+			font-weight: bold;
 		}
 
 		h2{
 			color: white;
-			font-family: "JetBrains Mono",monospace;
 			font-size: 30px;
 			text-align: center;
 			margin-top: 30px;
+			font-weight: bold;
 		}
 
 		@media (min-width: 768px){
@@ -44,7 +47,7 @@
 			border-radius: 200px;
 			margin-left: 20px;
 			margin-right: 20px;
-			margin-top: 18%;
+			margin-top: 15%;
 			box-shadow: 0px 0px 50px 1px rgba(187, 187, 204, 1);
 			margin-bottom: 20px;
 			animation-name: glow;
@@ -65,7 +68,6 @@
 			border-radius: 200px;
 			margin-left: auto;
 			margin-right: auto;
-			margin-top: 18%;
 			overflow: hidden;
 			transform: translate3d(0,0,0);
 			box-shadow: inset 0px 0px 25px 20px rgba(17, 17, 24, 1);
@@ -95,15 +97,15 @@
 		}
 
 		@keyframes earth {
-		  from {transform: scale(0.6) translate(-100%, -180px); 
+		  from {transform: scale(1) translate(-100%); 
         
         }
-		  to {transform: scale(0.6) translate(-200%, -180px);}
+		  to {transform: scale(1) translate(-200%);}
 		}
 
 		@keyframes earthsecond {
-		  from {transform: scale(0.6) translate(0%, -180px);}
-		  to {transform: scale(0.6) translate(-100%, -180px);}
+		  from {transform: scale(1) translate(0%);}
+		  to {transform: scale(1) translate(-100%);}
 		}
 
 		@keyframes glow {
@@ -116,24 +118,63 @@
 		}
 
 		.button-main{
-			border: 3px dashed white;
+			
 			font-size: 30px;
-			font-family: "JetBrains Mono",monospace;
 			color: white;
-			max-width: 150px;
 			margin-left: auto;
 			margin-right: auto;
 			margin-top: 30px;
-			transition: ease .5s all;
+			font-weight: bold;
 			text-align: center;
+			overflow: hidden;
+			width: 150px;
+		  height: 50px;
+		  margin: 0 auto;
+		  position: relative;
+		  overflow: hidden;
 		}
-		.button-main:hover{
+
+		.main-element:hover{
 			background: white;
-			padding: 1px;
 			color: #020011;
-			max-width: 200px;
 			cursor: pointer;
 		}
+
+		.main-element {
+		  position: absolute;
+		  font-size: 28px;
+		  top: 4px;
+		  left: 4px;
+		  display: block;
+		  height: 42px;
+		  width: 142px;
+		  margin: auto;
+		  align-self: center;
+		  background: rgb(2 0 17 / 85%);
+		  transition: ease .5s all;
+		}
+
+		.border {
+		  position: absolute;
+		  display: block;
+		  top: -100%;
+		  left: -50%;
+		  display: block;
+		  height: 300%;
+		  width: 200%;
+		  transform: rotate(-45deg);
+		  overflow: hidden;
+		  background: linear-gradient(to right, #fff 20%, #fff 40%, #8caeec 50%, #8caeec 55%, #fff 70%, #fff 100%);
+		  background-size: 200% auto;
+		  
+		  animation: shine 3s linear infinite;
+		}
+
+		@keyframes shine {
+		    to {
+		      background-position: 200% center;
+		    }
+		  }
 
 		#instruction{
 			display: none;
@@ -151,7 +192,6 @@
 
 		.instruction-text{
 			text-align: justify;
-			font-family: "JetBrains Mono",monospace;
 			margin: 10px;
 		}
 
@@ -394,15 +434,16 @@
 			<center>
 				<h1 class="mt-md-6" style="margin-top: 10px;">Σatematyczna wycieczka</h1>
 				<p style="color: white; opacity: 0.8">po Grodzisku Mazowieckim</p>
-				<div id="start-button" class="button-main">Start</div>
+				<div id="start-button" class="button-main"><div class="border"></div>
+    				<div class="main-element">Start</div></div>
 			</center>
 		</div>
 		<div class="col-12 col-md-6" style="display: block; float: left;" id="earth-container">
 			<center>
 				<div id="earth-out">
 					<div id="earth">
-						<img id="img-earth" src="world-map.png">
-						<img id="img-earth-second" src="world-map.png">
+						<img id="img-earth" src="./img/world-map.png">
+						<img id="img-earth-second" src="./img/world-map.png">
 					</div>
 				</div>
 			</center>
@@ -412,14 +453,15 @@
 		<div id="instruction-1" class="col-10 col-md-4 instruction-div" style="margin-left: auto; margin-right: auto; text-align: justify; opacity: 0; transition: ease 1s all;">
 			<h2>Witaj!</h2>
 			<span class="instruction-text">Wycieczka matematyczna polega na przejściu przez punkty, które zostały rozłożone w centrum Grodziska Mazowieckiego. Czekają tam na Ciebie różnego rodzaju zadania, które pozwolą Ci odnaleźć następny cel.</span>
-			<div id="instruction-1-btn" class="button-main" style="font-size: 20px">Dalej</div>
+			<div id="instruction-1-btn" class="button-main" style="font-size: 28px; margin-top: 20px"><div class="border"></div>
+    <div class="main-element">Dalej</div></div>
 		</div>
 		<div id="instruction-2" class="instruction-div col-10 col-md-6" style="opacity: 0; display: none;">
 			<h2>Instrukcja</h2>
 			<div class="col-12 col-md-6" style="display: block; float: left;">
-				<img class="app-img" id="instruction-2-img" src="tutorial-1-img.png" width="884" height="884" usemap = "#lessons">
+				<img class="app-img" id="instruction-2-img" src="./img/tutorial-1-img.png" w_width="442" w_height="442" usemap = "#lessons">
 				<map name = "lessons">
-		         <area shape = "circle" coords = "215,475,100" />
+		         <area shape = "circle" coords = "108,236,30" />
 		      </map>
 		  	</div>
 	      	<div class="instruction-text-div col-12 col-md-6" style="margin-top: 20px; display: block; float: left;">
@@ -432,9 +474,9 @@
 		<div id="instruction-3" class="instruction-div col-10 col-md-6" style="opacity: 0; display: none;">
 			<h2>Instrukcja</h2>
 			<div class="col-12 col-md-6" style="display: block; float: left;">
-				<img class="app-img" id="instruction-3-img" src="tutorial-2-img.png" width="884" height="884" usemap = "#instruction-3-map">
+				<img class="app-img" id="instruction-3-img" src="./img/tutorial-2-img.png" w_width="442" w_height="442" usemap = "#instruction-3-map">
 				<map name = "instruction-3-map">
-		         <area shape = "circle" coords = "60,420,100" />
+		         <area shape = "circle" coords = "30,210,30" />
 		      </map>
 		  	</div>
 	      	<div class="instruction-text-div col-12 col-md-6" style="margin-top: 20px; display: block; float: left;">

@@ -1,17 +1,55 @@
 {
 	"tasks": [
 		{
-			"title": "Nazwa zagadki",
-			"question": "Ile to 2+2?",
+			"title": "&quot;Bociany&quot;",
+			"question": "&quot;Bociany&quot; to obraz Józefa Chełmońskiego z 1900 roku. Obraz powstał w okresie, kiedy Chełmoński po powrocie z Monachium zamieszkał w mazowieckiej wsi Kuklówka, i malował szereg obrazów o tematyce wiejskiej, głównie krajobrazy pól, dzikiego ptactwa, pracujących w polu ludzi. Wykorzystując zamieszczony obraz i wiedząc, że szerokość kapelusza dziecka wynosi 10,8cm na obrazie, oblicz wymiary obrazu. Stosunek szerokości do wysokości obrazu wynosi 6,6:5. Podaj odpowiedź w formacie (szerokość)x(wysokość).",
+			"answer": "198x150",
+			"location": "https://goo.gl/maps/ZHLkTSGuFSshMPZz6",
+			"img": "chelmonski.png",
+			"img-res": "chelmonski-res.png"
+		},
+		{
+			"title": "&quot;Bociany&quot;",
+			"question": "&quot;Bociany&quot; to obraz Józefa Chełmońskiego z 1900 roku. Obraz powstał w okresie, kiedy Chełmoński po powrocie z Monachium zamieszkał w mazowieckiej wsi Kuklówka, i malował szereg obrazów o tematyce wiejskiej, głównie krajobrazy pól, dzikiego ptactwa, pracujących w polu ludzi. Wykorzystując zamieszczony obraz i wiedząc, że szerokość kapelusza dziecka wynosi 10,8cm na obrazie, oblicz wymiary obrazu. Stosunek szerokości do wysokości obrazu wynosi 6,6:5. Podaj odpowiedź w formacie (szerokość)x(wysokość).",
 			"answer": "4",
 			"location": "https://goo.gl/maps/ZHLkTSGuFSshMPZz6",
-			"picture": "biesiadowo.png"
+			"img": "1.png",
+			"img-res": "chelmonski-res.png"
 		}
 	],
 	"0": [
 		{
 			"title": "Udaj się do tego punktu",
-			"description": "Jeżeli potrzebujesz pomocy w dotarciu do tego punktu <a href='https://goo.gl/maps/gRCPUPCPnTJAfV5bA' target='_blank'>kliknij tutaj!</a>"
+			"description": "Jeżeli potrzebujesz pomocy w dotarciu do tego punktu <a href='https://goo.gl/maps/gRCPUPCPnTJAfV5bA' target='_blank'>kliknij tutaj!</a>",
+			"img": "1.png",
+			"nextCategory": "tasks",
+			"next": 0,
+			"button": 1
+		}
+	],
+	"1": [
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Podążaj deptakiem do skrzyżowania (150m).",
+			"img": "2.png",
+			"cords": "188, 225, 20",
+			"maps-link": "https://goo.gl/maps/75j5ruc8fHhXi4EK9"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Idź dalej do następnego skrzyżowania. (250m)",
+			"img": "3.png",
+			"cords": "202, 220, 20",
+			"maps-link": "https://goo.gl/maps/9bACYbhUABxWkGpc8"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Plac, który widzisz przed sobą to Plac Wolności.",
+			"img": "4.png",
+			"nextCategory": "tasks",
+			"maps-link": "https://goo.gl/maps/WDMYskGm4tqFzCsBA",
+			"cords": "200, 210, 20",
+			"next": 1
 		}
 	]
 }
