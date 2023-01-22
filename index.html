@@ -1,294 +1,262 @@
+<!--Website created by Mikołaj Korzan-->
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Wycieczka matematyczna</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<style type="text/css">
-		
-		html, body {margin: 0; height: 100%; overflow: hidden}
-		body{
-			background: rgb(3,0,14);
-			background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
-			font-family: 'Lato', sans-serif;
-			-webkit-user-select: none; /* Safari */
-			-ms-user-select: none; /* IE 10 and IE 11 */
-			user-select: none;
-		}
-
-		h1{
-			color: white;
-			font-size: 50px;
-			font-weight: bold;
-		}
-
-		h2{
-			color: white;
-			font-size: 30px;
-			text-align: center;
-			margin-top: 30px;
-			font-weight: bold;
-		}
-
-		@media (min-width: 768px){
-			.mt-md-6 {
-			    margin-top: 14rem!important;
-			}
-		}
-
-		#earth-out{
-			aspect-ratio : 1 / 1;
-			max-width: 400px;
-			background: white;
-			border-radius: 200px;
-			margin-left: 20px;
-			margin-right: 20px;
-			margin-top: 15%;
-			box-shadow: 0px 0px 50px 1px rgba(187, 187, 204, 1);
-			margin-bottom: 20px;
-			animation-name: glow;
-		  	animation-duration: 2s;
-		  	animation-iteration-count: infinite;
-		  	animation-timing-function: ease-in-out;
-		  	animation-direction: alternate-reverse;
-		  	transition: ease 3s all;
-		  	background: black;
-		  	transform: translate(0, 20px);
-		}
-
-		#earth{
-			max-width: 400px;
-			aspect-ratio : 1 / 1;
-			background: rgb(233,233,233);
-			background: radial-gradient(circle at 100px 100px, #b7b4f1, #000);
-			border-radius: 200px;
-			margin-left: auto;
-			margin-right: auto;
-			overflow: hidden;
-			transform: translate3d(0,0,0);
-			box-shadow: inset 0px 0px 25px 20px rgba(17, 17, 24, 1);
-			transition: ease 3s all;
-		}
-
-		#img-earth{
-			position: fixed;
-			transform: scale(0.6) translate(-100%, -180px);
-			animation-name: earth;
-		  	animation-duration: 10s;
-		  	animation-iteration-count: infinite;
-		  	animation-timing-function: linear;
-		  	transition: ease 2s all;
-		  	filter: invert(30%);
-		}
-
-		#img-earth-second{
-			transform: scale(0.6) translate(0%, -180px);
-			position: fixed;
-			animation-name: earthsecond;
-		  	animation-duration: 10s;
-		  	animation-iteration-count: infinite;
-		  	animation-timing-function: linear;
-		  	transition: ease 2s all;
-		  	filter: invert(30%);
-		}
-
-		@keyframes earth {
-		  from {transform: scale(1) translate(-100%); 
-        
-        }
-		  to {transform: scale(1) translate(-200%);}
-		}
-
-		@keyframes earthsecond {
-		  from {transform: scale(1) translate(0%);}
-		  to {transform: scale(1) translate(-100%);}
-		}
-
-		@keyframes glow {
-		  from {box-shadow: 0px 0px 80px 1px rgba(187, 187, 204, 1);
-		  transform: translate(0, 0px); 
-        
-        }
-		  to {box-shadow: 0px 0px 50px 1px rgba(187, 187, 204, 1);
-		  	transform: translate(0, 20px);}
-		}
-
-		.button-main{
-			
-			font-size: 30px;
-			color: white;
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 30px;
-			font-weight: bold;
-			text-align: center;
-			overflow: hidden;
-			width: 150px;
-		  height: 50px;
-		  margin: 0 auto;
-		  position: relative;
-		  overflow: hidden;
-		}
-
-		.main-element:hover{
-			background: white;
-			color: #020011;
-			cursor: pointer;
-		}
-
-		.main-element {
-		  position: absolute;
-		  font-size: 28px;
-		  top: 4px;
-		  left: 4px;
-		  display: block;
-		  height: 42px;
-		  width: 142px;
-		  margin: auto;
-		  align-self: center;
-		  background: rgb(2 0 17 / 85%);
-		  transition: ease .5s all;
-		}
-
-		.border {
-		  position: absolute;
-		  display: block;
-		  top: -100%;
-		  left: -50%;
-		  display: block;
-		  height: 300%;
-		  width: 200%;
-		  transform: rotate(-45deg);
-		  overflow: hidden;
-		  background: linear-gradient(to right, #fff 20%, #fff 40%, #8caeec 50%, #8caeec 55%, #fff 70%, #fff 100%);
-		  background-size: 200% auto;
-		  
-		  animation: shine 3s linear infinite;
-		}
-
-		@keyframes shine {
-		    to {
-		      background-position: 200% center;
-		    }
-		  }
-
-		#instruction{
-			display: none;
-			opacity: 0;
-			width: 100%;
-			height: 100%;
-			background: rgb(3,0,14);
-			background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
-			transition: ease 2.5s all;
-			position: absolute;
-			z-index: 3;
-			top: 0;
-			color: white;
-		}
-
-		.instruction-text{
-			text-align: justify;
-			margin: 10px;
-		}
-
-		.instruction-div{
-			position: absolute;
-			left: 0;
-			right: 0;
-			z-index: 2;
-			transition: ease 1s all;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.app-img{
-			
-			margin-top: 10%;
-		}
-
-		.scene{
-			position: absolute;
-			z-index: 5;
-			top: 0;
-		    height: 100vh;
-		    width: 100%;
-		    overflow: hidden;
-		    perspective: 10vmin;
-		    display: none;
-		    opacity: 0;
-		    transition: ease 1s all;
-		}
-
-		.scene div{
-		    width: 1.5vmin;
-		    height: 1.5vmin;
-		    transform: 
-		    translateZ(-100vmin)
-		    rotateY(90deg)
-		    rotateX(var(--rx))
-		    translateZ(var(--x))
-		    scaleX(1);
-		    position: absolute;
-		    top: 0%;
-		    left: 0%;
-		    animation:  animate 1.5s infinite ease-in;
-		    background: #fff;
-		    box-shadow: 0 0 20px rgb(10, 239, 255);
-		}
-
-		@keyframes animate {
-		    0%, 90%{
-		        opacity: 1;
-		    }
-		    100%{
-		        opacity: 0;
-		        transform: 
-		        translateZ(0vmin)
-		        rotateY(90deg)
-		        rotateX(var(--rx))
-		        translateZ(var(--x))
-		        scaleX(6);
-		    }
-		}
-
-		img[usemap] {
-			border: none;
-			height: auto;
-			max-width: 100%;
-			width: auto;
-		}
-
-		area:hover{
-			cursor: pointer;
-		}
-
-.loading-div{
-   width: 100%;
-   height: 100%;
-   background: rgb(3,0,14);
-	background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
-   position: absolute;
-   top: 0;
-   z-index: 10;
-   justify-content: center;
-   align-items: center; 
-   transition: ease 1s all;
-}
-
-.loading-div .loading {
-		position: relative;
-	    top: 40%;
-	    transform: translateY(-40%);
-	    width: 80px;
-	    height: 50px;
-  		margin-left: auto;
-  		margin-right: auto;}
-
-.loading p {
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Wycieczka matematyczna</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <style type="text/css">
+         html, body {margin: 0; height: 100%; overflow: hidden}
+         body{
+         background: rgb(3,0,14);
+         background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
+         font-family: 'Lato', sans-serif;
+         -webkit-user-select: none; /* Safari */
+         -ms-user-select: none; /* IE 10 and IE 11 */
+         user-select: none;
+         }
+         h1{
+         color: white;
+         font-size: 50px;
+         font-weight: bold;
+         }
+         h2{
+         color: white;
+         font-size: 30px;
+         text-align: center;
+         margin-top: 30px;
+         font-weight: bold;
+         }
+         @media (min-width: 768px){
+         .mt-md-6 {
+         margin-top: 14rem!important;
+         }
+         }
+         #earth-out{
+         aspect-ratio : 1 / 1;
+         max-width: 400px;
+         background: white;
+         border-radius: 200px;
+         margin-left: 20px;
+         margin-right: 20px;
+         margin-top: 15%;
+         box-shadow: 0px 0px 50px 1px rgba(187, 187, 204, 1);
+         margin-bottom: 20px;
+         animation-name: glow;
+         animation-duration: 2s;
+         animation-iteration-count: infinite;
+         animation-timing-function: ease-in-out;
+         animation-direction: alternate-reverse;
+         transition: ease 3s all;
+         background: black;
+         transform: translate(0, 20px);
+         }
+         #earth{
+         max-width: 400px;
+         aspect-ratio : 1 / 1;
+         background: rgb(233,233,233);
+         background: radial-gradient(circle at 100px 100px, #b7b4f1, #000);
+         border-radius: 200px;
+         margin-left: auto;
+         margin-right: auto;
+         overflow: hidden;
+         transform: translate3d(0,0,0);
+         box-shadow: inset 0px 0px 25px 20px rgba(17, 17, 24, 1);
+         transition: ease 3s all;
+         }
+         #img-earth{
+         position: fixed;
+         transform: scale(0.6) translate(-100%, -180px);
+         animation-name: earth;
+         animation-duration: 10s;
+         animation-iteration-count: infinite;
+         animation-timing-function: linear;
+         transition: ease 2s all;
+         filter: invert(30%);
+         }
+         #img-earth-second{
+         transform: scale(0.6) translate(0%, -180px);
+         position: fixed;
+         animation-name: earthsecond;
+         animation-duration: 10s;
+         animation-iteration-count: infinite;
+         animation-timing-function: linear;
+         transition: ease 2s all;
+         filter: invert(30%);
+         }
+         @keyframes earth {
+         from {transform: scale(1) translate(-100%); 
+         }
+         to {transform: scale(1) translate(-200%);}
+         }
+         @keyframes earthsecond {
+         from {transform: scale(1) translate(0%);}
+         to {transform: scale(1) translate(-100%);}
+         }
+         @keyframes glow {
+         from {box-shadow: 0px 0px 80px 1px rgba(187, 187, 204, 1);
+         transform: translate(0, 0px); 
+         }
+         to {box-shadow: 0px 0px 50px 1px rgba(187, 187, 204, 1);
+         transform: translate(0, 20px);}
+         }
+         .button-main{
+         font-size: 30px;
+         color: white;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top: 30px;
+         font-weight: bold;
+         text-align: center;
+         overflow: hidden;
+         width: 150px;
+         height: 50px;
+         margin: 0 auto;
+         position: relative;
+         overflow: hidden;
+         }
+         .main-element:hover{
+         background: white;
+         color: #020011;
+         cursor: pointer;
+         }
+         .main-element {
+         position: absolute;
+         font-size: 28px;
+         top: 4px;
+         left: 4px;
+         display: block;
+         height: 42px;
+         width: 142px;
+         margin: auto;
+         align-self: center;
+         background: rgb(2 0 17 / 85%);
+         transition: ease .5s all;
+         }
+         .border {
+         position: absolute;
+         display: block;
+         top: -100%;
+         left: -50%;
+         display: block;
+         height: 300%;
+         width: 200%;
+         transform: rotate(-45deg);
+         overflow: hidden;
+         background: linear-gradient(to right, #fff 20%, #fff 40%, #8caeec 50%, #8caeec 55%, #fff 70%, #fff 100%);
+         background-size: 200% auto;
+         animation: shine 3s linear infinite;
+         }
+         @keyframes shine {
+         to {
+         background-position: 200% center;
+         }
+         }
+         #instruction{
+         display: none;
+         opacity: 0;
+         width: 100%;
+         height: 100%;
+         background: rgb(3,0,14);
+         background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
+         transition: ease 2.5s all;
+         position: absolute;
+         z-index: 3;
+         top: 0;
+         color: white;
+         }
+         .instruction-text{
+         text-align: justify;
+         margin: 10px;
+         }
+         .instruction-div{
+         position: absolute;
+         left: 0;
+         right: 0;
+         z-index: 2;
+         transition: ease 1s all;
+         margin-left: auto;
+         margin-right: auto;
+         }
+         .app-img{
+         margin-top: 10%;
+         }
+         .scene{
+         position: absolute;
+         z-index: 5;
+         top: 0;
+         height: 100vh;
+         width: 100%;
+         overflow: hidden;
+         perspective: 10vmin;
+         display: none;
+         opacity: 0;
+         transition: ease 1s all;
+         }
+         .scene div{
+         width: 1.5vmin;
+         height: 1.5vmin;
+         transform: 
+         translateZ(-100vmin)
+         rotateY(90deg)
+         rotateX(var(--rx))
+         translateZ(var(--x))
+         scaleX(1);
+         position: absolute;
+         top: 0%;
+         left: 0%;
+         animation:  animate 1.5s infinite ease-in;
+         background: #fff;
+         box-shadow: 0 0 20px rgb(10, 239, 255);
+         }
+         @keyframes animate {
+         0%, 90%{
+         opacity: 1;
+         }
+         100%{
+         opacity: 0;
+         transform: 
+         translateZ(0vmin)
+         rotateY(90deg)
+         rotateX(var(--rx))
+         translateZ(var(--x))
+         scaleX(6);
+         }
+         }
+         img[usemap] {
+         border: none;
+         height: auto;
+         max-width: 100%;
+         width: auto;
+         }
+         area:hover{
+         cursor: pointer;
+         }
+         .loading-div{
+         width: 100%;
+         height: 100%;
+         background: rgb(3,0,14);
+         background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
+         position: absolute;
+         top: 0;
+         z-index: 10;
+         justify-content: center;
+         align-items: center; 
+         transition: ease 1s all;
+         }
+         .loading-div .loading {
+         position: relative;
+         top: 40%;
+         transform: translateY(-40%);
+         width: 80px;
+         height: 50px;
+         margin-left: auto;
+         margin-right: auto;}
+         .loading p {
          top: 0;
          padding: 0;
          margin: 0;
@@ -296,34 +264,29 @@
          animation: text 3.5s ease both infinite;
          font-size: 12px;
          letter-spacing: 1px; }
-
          @keyframes text {
-            0% {
-               letter-spacing: 1px;
-               transform: translateX(0px);
-            }
-
-            40% {
-               letter-spacing: 2px;
-               transform: translateX(26px);
-            }
-
-            80% {
-               letter-spacing: 1px;
-               transform: translateX(32px);
-            }
-
-            90% {
-               letter-spacing: 2px;
-               transform: translateX(0px);
-            }
-
-            100% {
-               letter-spacing: 1px;
-               transform: translateX(0px);
-            }
+         0% {
+         letter-spacing: 1px;
+         transform: translateX(0px);
          }
-.loading span {
+         40% {
+         letter-spacing: 2px;
+         transform: translateX(26px);
+         }
+         80% {
+         letter-spacing: 1px;
+         transform: translateX(32px);
+         }
+         90% {
+         letter-spacing: 2px;
+         transform: translateX(0px);
+         }
+         100% {
+         letter-spacing: 1px;
+         transform: translateX(0px);
+         }
+         }
+         .loading span {
          background-color: #162242;
          border-radius: 50px;
          display: block;
@@ -333,273 +296,269 @@
          position: absolute;
          transform: translateX(64px);
          animation: loading-animation 3.5s ease both infinite;}
-
-.loading span:before {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 100%;
-            background-color: #5370dd;
-            border-radius: inherit;
-            animation: loading2 3.5s ease both infinite;
+         .loading span:before {
+         position: absolute;
+         content: "";
+         width: 100%;
+         height: 100%;
+         background-color: #5370dd;
+         border-radius: inherit;
+         animation: loading2 3.5s ease both infinite;
          }
-
          @keyframes loading-animation {
-            0% {
-               width: 16px;
-               transform: translateX(0px);
-            }
-
-            40% {
-               width: 100%;
-               transform: translateX(0px);
-            }
-
-            80% {
-               width: 16px;
-               transform: translateX(64px);
-            } 
-
-            90% {
-               width: 100%;
-               transform: translateX(0px);
-            }
-
-            100% {
-               width: 16px;
-               transform: translateX(0px);
-            }
+         0% {
+         width: 16px;
+         transform: translateX(0px);
+         }
+         40% {
+         width: 100%;
+         transform: translateX(0px);
+         }
+         80% {
+         width: 16px;
+         transform: translateX(64px);
+         } 
+         90% {
+         width: 100%;
+         transform: translateX(0px);
+         }
+         100% {
+         width: 16px;
+         transform: translateX(0px);
+         }
          }
          @keyframes loading2 {
-            0% {
-               transform: translateX(0px);
-               width: 16px;
-            }
-
-            40% {
-               transform: translateX(0%);
-               width: 80%;
-            }
-
-           80% {
-               width: 100%;
-               transform: translateX(0px);
-            }
-
-            90% {
-               width: 80%;
-            transform: translateX(15px);
-            }
-            100% {
-               transform: translateX(0px);
-               width: 16px;
-            }
+         0% {
+         transform: translateX(0px);
+         width: 16px;
          }
-
+         40% {
+         transform: translateX(0%);
+         width: 80%;
+         }
+         80% {
+         width: 100%;
+         transform: translateX(0px);
+         }
+         90% {
+         width: 80%;
+         transform: translateX(15px);
+         }
+         100% {
+         transform: translateX(0px);
+         width: 16px;
+         }
+         }
          #app-container{
-			display: none;
-			opacity: 0;
-			width: 100%;
-			height: 100%;
-			background: rgb(3,0,14);
-			background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
-			transition: ease 2.5s all;
-			transition-delay: 0.5s;
-			position: absolute;
-			z-index: 1;
-			top: 0;
-			color: white;
-		}
+         display: none;
+         opacity: 0;
+         width: 100%;
+         height: 100%;
+         background: rgb(3,0,14);
+         background: linear-gradient(90deg, rgba(3,0,14,1) 0%, rgba(1,0,19,1) 50%, rgba(0,0,13,1) 100%);
+         transition: ease 2.5s all;
+         transition-delay: 0.5s;
+         position: absolute;
+         z-index: 1;
+         top: 0;
+         color: white;
+         }
+         #grodzisk-img{
+         animation-name: zoom;
+         animation-duration: 5s;
+         animation-timing-function: linear;
+         animation-delay: 5s;
+         }
+         @keyframes zoom {
+         from {transform: scale(1); 
+         }
+         to {transform: scale(4)}
+         }
+      </style>
+   </head>
+   <body>
+      <div id="start-container">
+         <div class="col-12 col-md-6" style="display: block; float: left; text-align: center;" id="h1-container">
+            <center>
+               <h1 class="mt-md-6" style="margin-top: 10px;">Σatematyczna wycieczka</h1>
+               <p style="color: white; opacity: 0.8">po Grodzisku Mazowieckim</p>
+               <div id="start-button" class="button-main">
+                  <div class="border"></div>
+                  <div class="main-element">Start</div>
+               </div>
+            </center>
+         </div>
+         <div class="col-12 col-md-6" style="display: block; float: left;" id="earth-container">
+            <center>
+               <div id="earth-out">
+                  <div id="earth">
+                     <img id="img-earth" src="./img/world-map.png">
+                     <img id="img-earth-second" src="./img/world-map.png">
+                  </div>
+               </div>
+            </center>
+         </div>
+      </div>
+      <div id="instruction">
+         <div id="instruction-1" class="col-10 col-md-4 instruction-div" style="margin-left: auto; margin-right: auto; text-align: justify; opacity: 0; transition: ease 1s all;">
+            <h2>Witaj!</h2>
+            <span class="instruction-text">Wycieczka matematyczna polega na przejściu przez punkty, które zostały rozłożone w centrum Grodziska Mazowieckiego. Czekają tam na Ciebie różnego rodzaju zadania, które pozwolą Ci odnaleźć następny cel.</span>
+            <div id="instruction-1-btn" class="button-main" style="font-size: 28px; margin-top: 20px">
+               <div class="border"></div>
+               <div class="main-element">Dalej</div>
+            </div>
+         </div>
+         <div id="instruction-2" class="instruction-div col-10 col-md-6" style="opacity: 0; display: none;">
+            <h2>Instrukcja</h2>
+            <div class="col-12 col-md-6" style="display: block; float: left;">
+               <img class="app-img" id="instruction-2-img" src="./img/tutorial-1-img.png" w_width="442" w_height="442" usemap = "#lessons">
+               <map name = "lessons">
+                  <area shape = "circle" coords = "108,236,30" />
+               </map>
+            </div>
+            <div class="instruction-text-div col-12 col-md-6" style="margin-top: 20px; display: block; float: left;">
+               <div class="instruction-text">
+                  <span>
+                  Droga do następnego celu będzie pokazywana poprzez linie tak jak na rysunku. Gdy bedziesz na punkcie zaznaczoną czerwoną kropką <b>nacisnij na nią</b>, aby przejść dalej!</span>
+               </div>
+            </div>
+         </div>
+         <div id="instruction-3" class="instruction-div col-10 col-md-6" style="opacity: 0; display: none;">
+            <h2>Instrukcja</h2>
+            <div class="col-12 col-md-6" style="display: block; float: left;">
+               <img class="app-img" id="instruction-3-img" src="./img/tutorial-2-img.png" w_width="442" w_height="442" usemap = "#instruction-3-map">
+               <map name = "instruction-3-map">
+                  <area shape = "circle" coords = "30,210,30" />
+               </map>
+            </div>
+            <div class="instruction-text-div col-12 col-md-6" style="margin-top: 20px; display: block; float: left;">
+               <div class="instruction-text">
+                  <span>
+                  Świetnie! Teraz jesteś gotowy na edukacyjną podróż!</span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="loading-div" id="loading-div">
+         <div class="loading">
+            <p>loading</p>
+            <span></span>
+         </div>
+      </div>
+      <main id="star-scene" class="scene"></main>
+      <script type="text/javascript">
+         window.addEventListener("load", (event) => {
 
-		#grodzisk-img{
-			animation-name: zoom;
-		  	animation-duration: 5s;
-		  	animation-timing-function: linear;
-		  	animation-delay: 5s;
-		}
+			    document.getElementById('start-container').style.marginTop = (screen.height - document.getElementById('h1-container').clientHeight - document.getElementById('earth-container').clientHeight) / 6 + "px";
 
+			    const scene = document.querySelector('.scene');
+			    const CreateDiv = () => {
+			        for (let i = 0; i < 100; i++) {
+			            scene.innerHTML += "<div class='star-div'></div>";
+			        }
+			    }
+			    CreateDiv();
+			    const stars = document.getElementsByClassName("star-div");
 
-		@keyframes zoom {
-		  from {transform: scale(1); 
-        
-        }
-		  to {transform: scale(4)}
-		}
+			    for (let i = 0; i < stars.length; i++) {
+			        let x = `${Math.random() * 200}vmax`;
+			        let y = `${Math.random() * 100}vh`;
+			        let z = `${Math.random() * 200 - 100}vmin`;
+			        let rx = `${Math.random() * 360}deg`;
+			        stars[i].style.setProperty('--x', x);
+			        stars[i].style.setProperty('--y', y);
+			        stars[i].style.setProperty('--z', z);
+			        stars[i].style.setProperty('--rx', rx);
+			        let delay = `${Math.random() * 1.5}s`;
+			        stars[i].style.animationDelay = delay;
+			    }
 
-	</style>
-</head>
-<body>
-	<div id="start-container">
-		<div class="col-12 col-md-6" style="display: block; float: left; text-align: center;" id="h1-container">
-			<center>
-				<h1 class="mt-md-6" style="margin-top: 10px;">Σatematyczna wycieczka</h1>
-				<p style="color: white; opacity: 0.8">po Grodzisku Mazowieckim</p>
-				<div id="start-button" class="button-main"><div class="border"></div>
-    				<div class="main-element">Start</div></div>
-			</center>
-		</div>
-		<div class="col-12 col-md-6" style="display: block; float: left;" id="earth-container">
-			<center>
-				<div id="earth-out">
-					<div id="earth">
-						<img id="img-earth" src="./img/world-map.png">
-						<img id="img-earth-second" src="./img/world-map.png">
-					</div>
-				</div>
-			</center>
-		</div>
-	</div>
-	<div id="instruction">
-		<div id="instruction-1" class="col-10 col-md-4 instruction-div" style="margin-left: auto; margin-right: auto; text-align: justify; opacity: 0; transition: ease 1s all;">
-			<h2>Witaj!</h2>
-			<span class="instruction-text">Wycieczka matematyczna polega na przejściu przez punkty, które zostały rozłożone w centrum Grodziska Mazowieckiego. Czekają tam na Ciebie różnego rodzaju zadania, które pozwolą Ci odnaleźć następny cel.</span>
-			<div id="instruction-1-btn" class="button-main" style="font-size: 28px; margin-top: 20px"><div class="border"></div>
-    <div class="main-element">Dalej</div></div>
-		</div>
-		<div id="instruction-2" class="instruction-div col-10 col-md-6" style="opacity: 0; display: none;">
-			<h2>Instrukcja</h2>
-			<div class="col-12 col-md-6" style="display: block; float: left;">
-				<img class="app-img" id="instruction-2-img" src="./img/tutorial-1-img.png" w_width="442" w_height="442" usemap = "#lessons">
-				<map name = "lessons">
-		         <area shape = "circle" coords = "108,236,30" />
-		      </map>
-		  	</div>
-	      	<div class="instruction-text-div col-12 col-md-6" style="margin-top: 20px; display: block; float: left;">
-	      		<div class="instruction-text">
-		      		<span>
-					Droga do następnego celu będzie pokazywana poprzez linie tak jak na rysunku. Gdy bedziesz na punkcie zaznaczoną czerwoną kropką <b>nacisnij na nią</b>, aby przejść dalej!</span>
-				</div>
-			</div>
-		</div>
-		<div id="instruction-3" class="instruction-div col-10 col-md-6" style="opacity: 0; display: none;">
-			<h2>Instrukcja</h2>
-			<div class="col-12 col-md-6" style="display: block; float: left;">
-				<img class="app-img" id="instruction-3-img" src="./img/tutorial-2-img.png" w_width="442" w_height="442" usemap = "#instruction-3-map">
-				<map name = "instruction-3-map">
-		         <area shape = "circle" coords = "30,210,30" />
-		      </map>
-		  	</div>
-	      	<div class="instruction-text-div col-12 col-md-6" style="margin-top: 20px; display: block; float: left;">
-	      		<div class="instruction-text">
-		      		<span>
-					Świetnie! Teraz jesteś gotowy na edukacyjną podróż!</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="loading-div" id="loading-div">
-	   <div class="loading">
-		<p>loading</p>
-	      <span></span>
-	   </div>
-	</div>
-<main id="star-scene" class="scene"></main>
-<script type="text/javascript">
+			    document.getElementById('loading-div').style.opacity = "0";
+			    setTimeout(function() {
+			        document.getElementById('loading-div').style.display = "none"
+			    }, 1000);
+			});
 
-	window.addEventListener("load", (event) => {
+			addEventListener("resize", (event) => {
+			    document.getElementById('start-container').style.marginTop = (screen.height - document.getElementById('h1-container').clientHeight - document.getElementById('earth-container').clientHeight) / 6 + "px";
+			});
 
-	  	document.getElementById('start-container').style.marginTop = (screen.height - document.getElementById('h1-container').clientHeight - document.getElementById('earth-container').clientHeight)/6 + "px";
+			if (document.getElementById('start-button').addEventListener) {
+			    document.getElementById('start-button').addEventListener("click", function() {
+			        document.getElementById("star-scene").style.display = "block";
+			        setTimeout(function() {
+			            document.getElementById('star-scene').style.opacity = "1";
+			            setTimeout(function() {
+			                document.getElementById('start-container').style.display = "none"
+			            }, 2000);
+			        }, 100);
+			        document.getElementById('instruction').style.display = "block";
+			        if (screen.width < 768) {
+			            var x = document.getElementById('h1-container').clientHeight + document.getElementById('earth-container').clientHeight / 2 - screen.height / 2;
+			            document.getElementById('earth').style.transform = "scale(5) translate(0, " + -1 * x + "px)";
+			        } else {
+			            var x = document.getElementById('earth-container').clientWidth / 2;
+			            document.getElementById('earth').style.transform = "translate(" + -1 * x + "px) scale(5)";
+			        }
 
-	  	const scene = document.querySelector('.scene');
-		const CreateDiv = () =>{
-		    for (let i = 0; i < 100; i++){
-		        scene.innerHTML += "<div class='star-div'></div>";
-		    }
-		}
-		CreateDiv();
-		const stars = document.getElementsByClassName("star-div");
+			        document.getElementById('img-earth').style.opacity = "0";
+			        document.getElementById('img-earth-second').style.opacity = "0";
+			        document.getElementById('instruction').style.opacity = "1";
 
-			for (let i = 0; i < stars.length; i++) {
-			  	let x = `${Math.random() * 200}vmax`;
-				let y = `${Math.random() * 100}vh`;
-				let z = `${Math.random() * 200 - 100}vmin`;
-				let rx = `${Math.random() * 360}deg`;
-				stars[i].style.setProperty('--x', x);
-				stars[i].style.setProperty('--y', y);
-				stars[i].style.setProperty('--z', z);
-				stars[i].style.setProperty('--rx', rx);
-				let delay = `${Math.random() * 1.5}s`;
-				stars[i].style.animationDelay = delay;
+			        setTimeout(function() {
+			            document.getElementById('star-scene').style.opacity = "0";
+
+			            setTimeout(function() {
+			                document.getElementById('star-scene').style.display = "none";
+			                document.getElementById('instruction-1').style.opacity = "1";
+			            }, 1000);
+			        }, 3000);
+
+			    });
 			}
 
-		document.getElementById('loading-div').style.opacity = "0";
-		setTimeout(function(){document.getElementById('loading-div').style.display="none"}, 1000);
-	});
-
-	addEventListener("resize", (event) => {
-		document.getElementById('start-container').style.marginTop = (screen.height - document.getElementById('h1-container').clientHeight - document.getElementById('earth-container').clientHeight)/6 + "px";
-	});
-
-	if(document.getElementById('start-button').addEventListener) {
-		document.getElementById('start-button').addEventListener("click", function() {
-			document.getElementById("star-scene").style.display = "block";
-			setTimeout(function(){
-				document.getElementById('star-scene').style.opacity = "1";
-				setTimeout(function(){
-					document.getElementById('start-container').style.display="none"
-				}, 2000);
-			}, 100);
-			document.getElementById('instruction').style.display = "block";
-			if(screen.width < 768){
-				var x = document.getElementById('h1-container').clientHeight + document.getElementById('earth-container').clientHeight/2 - screen.height/2;	
-				document.getElementById('earth').style.transform = "scale(5) translate(0, " + -1*x + "px)";
-			}else{
-				var x = document.getElementById('earth-container').clientWidth/2;
-				document.getElementById('earth').style.transform = "translate(" + -1*x + "px) scale(5)";
+			if (document.getElementById('instruction-1-btn').addEventListener) {
+			    document.getElementById('instruction-1-btn').addEventListener("click", function() {
+			        document.getElementById('instruction-2').style.display = "block";
+			        setTimeout(function() {
+			            document.getElementById('instruction-1').style.display = "none";
+			        }, 1000);
+			        setTimeout(function() {
+			            document.getElementById('instruction-2').style.opacity = "1";
+			            $('img[usemap]').rwdImageMaps();
+			            $('area').on('click', function() {
+			                document.getElementById('instruction-3').style.display = "block";
+			                setTimeout(function() {
+			                    document.getElementById('instruction-3').style.opacity = "1";
+			                    $('img[usemap]').rwdImageMaps();
+			                    $('area').on('click', function() {
+			                        document.getElementById("star-scene").style.display = "block";
+			                        setTimeout(function() {
+			                            document.getElementById("instruction").style.opacity = "0";
+			                            setTimeout(function() {
+			                                document.getElementById('star-scene').style.opacity = "1";
+			                                setTimeout(function() {
+			                                    document.getElementById('star-scene').style.opacity = "0";
+			                                    document.getElementById('instruction').style.display = "none";
+			                                    setTimeout(function() {
+			                                        window.location.href = "app.html";
+			                                    }, 1000);
+			                                }, 3000);
+			                            }, 1000);
+			                        }, 100);
+			                    });
+			                }, 100);
+			                document.getElementById('instruction-2').style.opacity = "0";
+			            });
+			        }, 100);
+			        document.getElementById('instruction-1').style.opacity = "0";
+			    })
 			}
-			
-			document.getElementById('img-earth').style.opacity = "0";
-			document.getElementById('img-earth-second').style.opacity = "0";
-			document.getElementById('instruction').style.opacity = "1";
-
-			setTimeout(function(){document.getElementById('star-scene').style.opacity = "0";
-
-				setTimeout(function(){
-					document.getElementById('star-scene').style.display = "none"; 
-					document.getElementById('instruction-1').style.opacity = "1";
-				}, 1000);
-			}, 3000);
-			
-		});
-	}
-
-	if(document.getElementById('instruction-1-btn').addEventListener) {
-		document.getElementById('instruction-1-btn').addEventListener("click", function() {
-			document.getElementById('instruction-2').style.display = "block";
-			setTimeout(function(){document.getElementById('instruction-1').style.display="none";}, 1000);
-			setTimeout(function(){document.getElementById('instruction-2').style.opacity = "1"; 
-				$('img[usemap]').rwdImageMaps();
-			    $('area').on('click', function() {
-					document.getElementById('instruction-3').style.display = "block";
-					setTimeout(function(){document.getElementById('instruction-3').style.opacity = "1";
-						$('img[usemap]').rwdImageMaps();
-					    $('area').on('click', function() {
-							document.getElementById("star-scene").style.display = "block";
-							setTimeout(function(){ 
-								document.getElementById("instruction").style.opacity = "0";
-								setTimeout(function(){
-									document.getElementById('star-scene').style.opacity = "1";
-									setTimeout(function(){
-										document.getElementById('star-scene').style.opacity = "0";
-										document.getElementById('instruction').style.display = "none";
-										setTimeout(function(){
-											window.location.href = "app.html";
-										}, 1000);
-									}, 3000);
-								}, 1000);
-							}, 100);
-						});
-					}, 100);
-					document.getElementById('instruction-2').style.opacity = "0";
-				});
-			}, 100);
-			document.getElementById('instruction-1').style.opacity = "0";
-		})}
-
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="jquery.rwdImageMaps.min.js"></script>
-</body>
+         
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+      <script src="jquery.rwdImageMaps.min.js"></script>
+   </body>
 </html>
