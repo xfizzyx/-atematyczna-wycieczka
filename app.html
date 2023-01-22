@@ -565,7 +565,7 @@
          
          var obj;
          var task;
-         let taskTime;
+         var taskTime;
          
          fetch('./plan.json')
              .then(res => res.json())
@@ -672,6 +672,7 @@
          
          function checkAnswer(a, x, y) {
              if (document.getElementById("input-app").value == a) {
+             	clearInterval(taskTime);
              	document.getElementById("input-app").classList.remove("incorrect");
              	document.getElementById("input-app").classList.add("correct");
                  document.getElementById("input-app").readOnly = true;
@@ -694,6 +695,7 @@
          }
          
          function endApp() {
+         	clearInterval(globalTime);
              var globalTimeInt = parseInt(getCookie("globalTime"));
              var taskTimeInt = parseInt(getCookie("taskTime"));
              document.getElementById("end-div").innerHTML = "Twój czas w grze to: " + Math.round(globalTimeInt / (60 * 60) * 100) / 100 + "H, czyli " + Math.round(globalTimeInt / (60)) + "min, czyli " + Math.round(globalTimeInt) + "s.</br>" + "Czas, który poświęciłeś na zadania to: " + Math.round(taskTimeInt / (60 * 60) * 100) / 100 + "H, czyli " + Math.round(taskTimeInt / (60)) + "min, czyli " + Math.round(taskTimeInt) + "s.</br> Czas w zadaniach stanowią " + Math.round((taskTimeInt / globalTimeInt) * 100) + "% Twojego całego czasu.</br>Podczas naszej wycieczki przeszedłeś 4,46km, czyli 4 459m, czyli 2,77mi, czyli 14 631ft.";
