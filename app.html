@@ -635,10 +635,11 @@
                  }, 1000);
                  clearInput();
                  if(obj[x][y]["tip"]){
+                 	console.log(obj[x][y]["tip"]);
          			document.getElementById('tip-a').setAttribute('onclick', 'showTip("' + obj[x][y]["tip"] + '")');
          	        setTimeout(function() {
          	            document.getElementById('tip-a-div').style.display = "block";
-         	        }, 1000 * 60);
+         	        }, 1000 * 10);
                  }
                  document.getElementById("input-app").readOnly = false;
                  document.getElementById("input-app").value = "";
