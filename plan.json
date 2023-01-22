@@ -6,15 +6,16 @@
 			"answer": "198x150",
 			"location": "https://goo.gl/maps/ZHLkTSGuFSshMPZz6",
 			"img": "chelmonski.png",
-			"img-res": "chelmonski-res.png"
+			"img-res": "chelmonski-res.png",
+			"tip": "Skorzystaj z spirali fibonacciego..."
 		},
 		{
-			"title": "&quot;Bociany&quot;",
-			"question": "&quot;Bociany&quot; to obraz Józefa Chełmońskiego z 1900 roku. Obraz powstał w okresie, kiedy Chełmoński po powrocie z Monachium zamieszkał w mazowieckiej wsi Kuklówka, i malował szereg obrazów o tematyce wiejskiej, głównie krajobrazy pól, dzikiego ptactwa, pracujących w polu ludzi. Wykorzystując zamieszczony obraz i wiedząc, że szerokość kapelusza dziecka wynosi 10,8cm na obrazie, oblicz wymiary obrazu. Stosunek szerokości do wysokości obrazu wynosi 6,6:5. Podaj odpowiedź w formacie (szerokość)x(wysokość).",
-			"answer": "4",
+			"title": "Willa &quot;Niespodzianka&quot;",
+			"question": "Willa &quot;Niespodzianka&quot; stojąca obok grodziskiego ratusza, została zaprojektowana przez Józefa Moszyńskiego, który chcąc sprawić swojej siostrze i matce niespodziankę, wybudował tę konstrukcję. Oblicz, w którym roku został wzniesiony ten budynek, wiedząc, że jest on równy rozwiązaniu powyższemu wyrażenia.<img src='img/task.png'/>",
+			"answer": "1903",
 			"location": "https://goo.gl/maps/ZHLkTSGuFSshMPZz6",
-			"img": "1.png",
-			"img-res": "chelmonski-res.png"
+			"img": "willaniespodzianka.png",
+			"img-res": "willaniespodzianka-res.png"
 		}
 	],
 	"0": [

@@ -215,7 +215,7 @@
 			}
 		}
 
-		#button-main{
+		#button-main, #button-end{
 			top: 20px;
 			font-size: 22px;
 			font-family: "JetBrains Mono",monospace;
@@ -403,6 +403,16 @@
 			font-weight: 300;
 		}
 
+		#tip-a-div{
+			display: none;
+			text-align: center;
+		}
+
+		#tip{
+			text-align: center;
+			color: white;
+		}
+
 	</style>
 </head>
 <body>
@@ -439,6 +449,8 @@
 			<area id="img-area" shape="circle" coords="188, 225, 20"/>
 		</map>
 		<div id="description"></div>
+		<div id="tip-a-div"><a id="tip-a">Wskazówka</a></div>
+		<div id="tip"></div>
 		<input id="input-app" type="text" placeholder="Odpowiedź" onkeyup="clearInput()"/>
 		<div id="button-main">
 			<div class="border"></div>
@@ -450,279 +462,321 @@
 		<div id="thank-you-div" class="col-11 col-md-6 col-lg-4">
 			<h1>Dziękujemy!</h1>
 			<div id="end-div"></div>
+			<div id="button-end">
+				<div class="border"></div>
+				<a onclick="deleteAllCookies()">
+	    			<div id="button-end-text" class="main-element">Zakończ podróż</div>
+	    		</a>
+	    	</div>
 		</div>
 		<div id="myModal" class="modal">
 		  <img class="modal-content" id="img01">
 		</div>
+		<img id="load-img" style="display: none;"/>
 </div>
 <script type="text/javascript">
 
-	window.onhashchange = function(){
-		if(location.hash == "#team"){
-			nextModal(2);
-		}else{
-			nextModal(3);
-		}
-	}
-
-	document.getElementById("img-way").addEventListener('load', function(){
-					document.getElementById("img-way").setAttribute("w_width", parseInt(document.getElementById("img-way").naturalWidth, 10));
-					document.getElementById("img-way").setAttribute("w_height", parseInt(document.getElementById("img-way").naturalHeight, 10));
-					$('img[usemap]').rwdImageMaps(1);
-					
-				});
-
 	window.addEventListener("load", (event) => {
-		history.pushState("", document.title, window.location.pathname + window.location.search);
-		if(getCookie("team") == ""){
-			document.getElementById("choose-mode").style.opacity = 1;
-			document.getElementById("tasks").style.display = "none";
-		}else{
-			updateApp("0", 0);
-			document.getElementById("tasks").style.opacity = 1;
-		}
-		if(getCookie("globalTime") == ""){
-			createCookie("globalTime", 0, 1);
-		}
-		let globalTime = setInterval(function(){
-			createCookie("globalTime", parseInt(getCookie("globalTime")) + 1, 1);
-		}, 1000);
+	    history.pushState("", document.title, window.location.pathname + window.location.search);
+	    if (getCookie("team") == "") {
+	        document.getElementById("choose-mode").style.opacity = 1;
+	        document.getElementById("tasks").style.display = "none";
+	    } else {
+	        updateApp("0", 0);
+	        document.getElementById("tasks").style.opacity = 1;
+	    }
+	    if (getCookie("globalTime") == "") {
+	        createCookie("globalTime", 0, 1);
+	    }
+	    let globalTime = setInterval(function() {
+	        createCookie("globalTime", parseInt(getCookie("globalTime")) + 1, 1);
+	    }, 1000);
+
+	    if(getCookie("lastStep") != ""){
+	    	updateApp(parseInt(getCookie("lastStep"))+1, 0);
+	    }
 	});
 
-	if(document.getElementById("option-1").addEventListener) {
-		document.getElementById("option-1").addEventListener("click", function() {
-			nextModal(1);
-			createCookie("team", "0", 1);
-		});
+	window.onhashchange = function() {
+	    if (location.hash == "#team") {
+	        nextModal(2);
+	    } else {
+	        nextModal(3);
+	    }
 	}
 
-	if(document.getElementById("choose-team-1").addEventListener) {
-		document.getElementById("choose-team-1").addEventListener("click", function() {
-			nextModal(1);
-			createCookie("team", "1", 1);
-		});
+	document.getElementById("img-way").addEventListener('load', function() {
+	    document.getElementById("img-way").setAttribute("w_width", parseInt(document.getElementById("img-way").naturalWidth, 10));
+	    document.getElementById("img-way").setAttribute("w_height", parseInt(document.getElementById("img-way").naturalHeight, 10));
+	    $('img[usemap]').rwdImageMaps(1);
+
+	});
+
+	if (document.getElementById("option-1").addEventListener) {
+	    document.getElementById("option-1").addEventListener("click", function() {
+	        nextModal(1);
+	        createCookie("team", "0", 1);
+	    });
 	}
 
-	if(document.getElementById("choose-team-2").addEventListener) {
-		document.getElementById("choose-team-2").addEventListener("click", function() {
-			nextModal(1);
-			createCookie("team", "2", 1);
-		});
+	if (document.getElementById("choose-team-1").addEventListener) {
+	    document.getElementById("choose-team-1").addEventListener("click", function() {
+	        nextModal(1);
+	        createCookie("team", "1", 1);
+	    });
+	}
+
+	if (document.getElementById("choose-team-2").addEventListener) {
+	    document.getElementById("choose-team-2").addEventListener("click", function() {
+	        nextModal(1);
+	        createCookie("team", "2", 1);
+	    });
 	}
 
 
 	function nextModal(x) {
-		createCookie("globalTime", 0, 1);
-		if(x == 1){
-			document.getElementById("choose-mode").style.opacity = 0;
-			document.getElementById("tasks").style.display = "block";
-			setTimeout(function(){
-				updateApp("0", 0);
-				document.getElementById("choose-mode").style.display = "none";
-				document.getElementById("tasks").style.opacity = 1;
-			}, 1000);
-		}
-		else if(x == 2){
+	    createCookie("globalTime", 0, 1);
+	    if (x == 1) {
+	        document.getElementById("choose-mode").style.opacity = 0;
+	        document.getElementById("tasks").style.display = "block";
+	        setTimeout(function() {
+	            updateApp("0", 0);
+	            document.getElementById("choose-mode").style.display = "none";
+	            document.getElementById("tasks").style.opacity = 1;
+	        }, 1000);
+	    } else if (x == 2) {
 
-			document.getElementById("choose-options").style.opacity = 0;
-			setTimeout(function(){
-				document.getElementById("choose-options").style.display = "none";
-				document.getElementById("choose-team").style.display = "block";
-				setTimeout(function(){
-					document.getElementById("choose-team").style.opacity = 1;
-				}, 100);
-				
-			}, 500);
-		}
-		else{
-			document.getElementById("choose-team").style.opacity = 0;
-			setTimeout(function(){
-				document.getElementById("choose-team").style.display = "none";
-				document.getElementById("choose-options").style.display = "block";
-				setTimeout(function(){
-					document.getElementById("choose-options").style.opacity = 1;
-				}, 100);
-				
-			}, 500);
-		}
+	        document.getElementById("choose-options").style.opacity = 0;
+	        setTimeout(function() {
+	            document.getElementById("choose-options").style.display = "none";
+	            document.getElementById("choose-team").style.display = "block";
+	            setTimeout(function() {
+	                document.getElementById("choose-team").style.opacity = 1;
+	            }, 100);
+
+	        }, 500);
+	    } else {
+	        document.getElementById("choose-team").style.opacity = 0;
+	        setTimeout(function() {
+	            document.getElementById("choose-team").style.display = "none";
+	            document.getElementById("choose-options").style.display = "block";
+	            setTimeout(function() {
+	                document.getElementById("choose-options").style.opacity = 1;
+	            }, 100);
+
+	        }, 500);
+	    }
 	}
 
-	function createCookie(name,value,days) {
+	function createCookie(name, value, days) {
 	    if (days) {
-	      var date = new Date();
-	      date.setTime(date.getTime()+(days*24*60*60*1000));
-	      var expires = "; expires="+date.toGMTString();
+	        var date = new Date();
+	        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+	        var expires = "; expires=" + date.toGMTString();
+	    } else var expires = "";
+	    document.cookie = name + "=" + value + expires + "; path=/";
+	}
+
+	function getCookie(cname) {
+	    let name = cname + "=";
+	    let decodedCookie = decodeURIComponent(document.cookie);
+	    let ca = decodedCookie.split(';');
+	    for (let i = 0; i < ca.length; i++) {
+	        let c = ca[i];
+	        while (c.charAt(0) == ' ') {
+	            c = c.substring(1);
+	        }
+	        if (c.indexOf(name) == 0) {
+	            return c.substring(name.length, c.length);
+	        }
 	    }
-	    else var expires = "";
-	    document.cookie = name+"="+value+expires+"; path=/";
-	  }
-
-	  function getCookie(cname) {
-		  let name = cname + "=";
-		  let decodedCookie = decodeURIComponent(document.cookie);
-		  let ca = decodedCookie.split(';');
-		  for(let i = 0; i <ca.length; i++) {
-		    let c = ca[i];
-		    while (c.charAt(0) == ' ') {
-		      c = c.substring(1);
-		    }
-		    if (c.indexOf(name) == 0) {
-		      return c.substring(name.length, c.length);
-		    }
-		  }
-		  return "";
-		}
+	    return "";
+	}
 
 
-		function deleteAllCookies() {
-		    document.cookie.split(";").forEach(function(c) { 
-		    	document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
-		    });
-		    window.location.replace("./");
-		}
+	function deleteAllCookies() {
+	    document.cookie.split(";").forEach(function(c) {
+	        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+	    });
+	    window.location.replace("./");
+	}
 
-		var obj;
-		var task;
-		let taskTime;
+	var obj;
+	var task;
+	let taskTime;
 
-		fetch('./plan.json')
-		  .then(res => res.json())
-		  .then(data => {
-		    obj = data;
-		   });
-
-
-		  function updateApp(x, y, ox, oy){
-		  	if(y == 0 & x != "tasks"){
-		  		document.getElementById("back-icon").style.opacity = "0";
-		  		document.getElementById("back-icon").style.pointerEvents = "none";
-		  	}else if(x != "tasks"){
-		  		document.getElementById("back-icon").style.pointerEvents = "auto";
-		  		document.getElementById("back-icon").style.opacity = "1";
-		  		document.getElementById("back-icon-a").setAttribute('onclick','updateApp("' + ox + '", ' + (y-1) + ", " + ox + ", " + (y-2) + ')');
-		  	}else{
-		  		document.getElementById("back-icon").style.pointerEvents = "auto";
-		  		document.getElementById("back-icon").style.opacity = "1";
-		  		document.getElementById("back-icon-a").setAttribute('onclick','updateApp("' + ox + '", ' + oy + ", " + ox + ", " + (y-2) + ')');
-		  	}
-		  	if(x != "tasks"){
-		  		clearInterval(taskTime);
-			  	document.getElementById("title").innerHTML = obj[x][y]['title'];
-			  	if(obj[x][y]['maps-link']){
-			  		document.getElementById("description").innerHTML = obj[x][y]['description'] + "</br>Nie wiesz gdzie iść? <a target='_blank' href='" + obj[x][y]['maps-link'] + "'>Kliknij tu</a>";
-			  	}else{
-			  		document.getElementById("description").innerHTML = obj[x][y]['description'];
-			  	}
-				document.getElementById("img-task").style.display = "none";
-				document.getElementById("img-way").style.display = "block";
-				document.getElementById("img-way").src = "./img/" + obj[x][y]['img'];
-				document.getElementById("input-app").style.display = "none";
-				if(obj[x][y]["cords"]){
-					document.getElementById("point").style.display = "block";
-					document.getElementById("img-area").coords = obj[x][y]['cords'];
-					
-					$('area').on('click', function() {
-						if(obj[x][y]["nextCategory"]){
-							updateApp(obj[x][y]['nextCategory'], obj[x][y]['next'], x, y);
-						}else{
-							updateApp(x, y+1, x, y);
-						}
-					});
-				}else{
-					document.getElementById("point").style.display = "none";
-				}
-				if(obj[x][y]["button"] == 1){
-					document.getElementById("button-text").innerHTML = "Dotarłem";
-					document.getElementById("button-main").style.display = "block";
-					if(obj[x][y]["nextCategory"]){
-						document.getElementById("button-app").setAttribute('onclick','updateApp("' + obj[x][y]['nextCategory'] + '", ' + obj[x][y]['next'] + ', "' + x + '", ' + y + ')');
-					}else{
-						document.getElementById("button-app").setAttribute('onclick','updateApp("' + x + '", ' + (y+1) + ', "' + x + '", ' + y + ')');
-					}
-				}else{
-					document.getElementById("button-main").style.display = "none";
-				}
-				
-			}else{
-				if(getCookie("taskTime") == ""){
-					createCookie("taskTime", 0, 1);
-				}
-				taskTime = setInterval(function(){
-				createCookie("taskTime", parseInt(getCookie("taskTime")) + 1, 1);}, 1000);
-				clearInput();
-				document.getElementById("input-app").readOnly = false;
-				document.getElementById("input-app").value = "";
-				document.getElementById("input-app").style.display = "block";
-				document.getElementById("button-main").style.display = "block";
-				document.getElementById("button-text").innerHTML = "Sprawdź";
-				document.getElementById("title").innerHTML = obj[x][y]['title'];
-				document.getElementById("description").innerHTML = obj[x][y]['question'];
-				document.getElementById("img-task").style.display = "block";
-				document.getElementById("img-way").style.display = "none";
-				document.getElementById("img-task").src = "./img/" + obj[x][y]['img'];
-				if(obj[x][y]["img-res"]){
-					document.getElementById("img-task").setAttribute('res', obj[x][y]["img-res"]);
-				}
-				document.getElementById("button-app").setAttribute('onclick','checkAnswer("' + obj[x][y]["answer"] + '", ' + (y + 1) + ', 0)');
-			}
-		  }
-
-		  function checkAnswer(a, x, y){
-		  	if(document.getElementById("input-app").value == a){
-		  		document.getElementById("input-app").style.border = "2px solid rgb(68 255 7)";
-		  		document.getElementById("input-app").style.boxShadow = "0px 0px 24px 0px rgba(35, 241, 21, 1)";
-		  		document.getElementById("input-app").readOnly = true;
-		  		document.getElementById("button-text").innerHTML = "Dalej";
-		  		if(obj[x]){
-		  			document.getElementById("button-app").setAttribute('onclick','updateApp("' + x + '", ' + y + ')');
-		  		}else{
-		  			document.getElementById("button-app").setAttribute('onclick','endApp()');
-		  		}
-		  	}else{
-		  		document.getElementById("input-app").style.border = "2px solid rgb(241, 21, 21)";
-		  		document.getElementById("input-app").style.boxShadow = "0px 0px 24px 0px rgba(241, 21, 21, 1)";
-		  	}
-		  }
-
-		  function endApp(){
-		  	var globalTimeInt = parseInt(getCookie("globalTime"));
-		  	var taskTimeInt = parseInt(getCookie("taskTime"));
-		  	document.getElementById("end-div").innerHTML = "Twój czas w grze to: " + Math.round(globalTimeInt/(60*60) * 100) / 100 + "H, czyli " + Math.round(globalTimeInt/(60)) + "min, czyli " + Math.round(globalTimeInt) + "s.</br>" + "Czas, który poświęciłeś na zadania to: " + Math.round(taskTimeInt/(60*60) * 100) / 100 + "H, czyli " + Math.round(taskTimeInt/(60)) + "min, czyli " + Math.round(taskTimeInt) + "s.</br> Czas w zadaniach stanowią " + Math.round((taskTimeInt/globalTimeInt)*100) + "% Twojego całego czasu.</br>Podczas naszej wycieczki przeszedłeś 4,46km, czyli 4 459m, czyli 2,77mi, czyli 14 631ft.";
-		  	document.getElementById("tasks").style.opacity = 0;
-		  	setTimeout(function(){
-		  		document.getElementById("tasks").style.display = "none";
-		  		document.getElementById("thank-you-div").style.display = "block";
-		  		setTimeout(function(){document.getElementById("thank-you-div").style.opacity = 1;}, 100);
-		  	}, 1000);
-		  }
-
-		  	var modal = document.getElementById('myModal');
-			var img = document.getElementById('img-task');
-			var modalImg = document.getElementById("img01");
-			var captionText = document.getElementById("caption");
-			img.onclick = function(){
-			    modal.style.display = "block";
-			    if(this.hasAttribute('res')){
-			    	modalImg.src = "./img/" + this.getAttribute('res');
-			    }else{
-			    	modalImg.src = this.src;
-			    }
-			}
-
-			modal.onclick = function() {
-			    img01.className += " out";
-			    setTimeout(function() {
-			       modal.style.display = "none";
-			       img01.className = "modal-content";
-			     }, 400);
-			    
-			 }   
+	fetch('./plan.json')
+	    .then(res => res.json())
+	    .then(data => {
+	        obj = data;
+	    });
 
 
-			 function clearInput(){
-			 	document.getElementById("input-app").style.border = "2px solid white";
-		  		document.getElementById("input-app").style.boxShadow = "none";
-			 }
+	function updateApp(x, y, ox, oy) {
+		document.getElementById("tip").style.display = "none";
+	    document.getElementById('tip-a-div').style.display = "none";
+	    if (y == 0 & x != "tasks") {
+	        document.getElementById("back-icon").style.opacity = "0";
+	        document.getElementById("back-icon").style.pointerEvents = "none";
+	    } else if (x != "tasks") {
+	        document.getElementById("back-icon").style.pointerEvents = "auto";
+	        document.getElementById("back-icon").style.opacity = "1";
+	        document.getElementById("back-icon-a").setAttribute('onclick', 'updateApp("' + ox + '", ' + (y - 1) + ", " + ox + ", " + (y - 2) + ')');
+	    } else {
+	        document.getElementById("back-icon").style.pointerEvents = "auto";
+	        document.getElementById("back-icon").style.opacity = "1";
+	        document.getElementById("back-icon-a").setAttribute('onclick', 'updateApp("' + ox + '", ' + oy + ", " + ox + ", " + (y - 2) + ')');
+	    }
+	    if (x != "tasks") {
+	        document.getElementById("title").innerHTML = obj[x][y]['title'];
+	        if (obj[x][y]['maps-link']) {
+	            document.getElementById("description").innerHTML = obj[x][y]['description'] + "</br>Nie wiesz gdzie iść? <a target='_blank' href='" + obj[x][y]['maps-link'] + "'>Kliknij tu</a>";
+	        } else {
+	            document.getElementById("description").innerHTML = obj[x][y]['description'];
+	        }
+	        document.getElementById("img-task").style.display = "none";
+	        document.getElementById("img-way").style.display = "block";
+	        document.getElementById("img-way").src = "./img/" + obj[x][y]['img'];
+	        document.getElementById("input-app").style.display = "none";
+	        if (obj[x][y]["cords"]) {
+	            document.getElementById("point").style.display = "block";
+	            document.getElementById("img-area").coords = obj[x][y]['cords'];
+
+	            $('area').on('click', function() {
+	                if (obj[x][y]["nextCategory"]) {
+	                    updateApp(obj[x][y]['nextCategory'], obj[x][y]['next'], x, y);
+	                } else {
+	                    updateApp(x, y + 1, x, y);
+	                }
+	            });
+	        } else {
+	            document.getElementById("point").style.display = "none";
+	        }
+	        if (obj[x][y]["button"] == 1) {
+	            document.getElementById("button-text").innerHTML = "Dotarłem";
+	            document.getElementById("button-main").style.display = "block";
+	            if (obj[x][y]["nextCategory"]) {
+	                document.getElementById("button-app").setAttribute('onclick', 'updateApp("' + obj[x][y]['nextCategory'] + '", ' + obj[x][y]['next'] + ', "' + x + '", ' + y + ')');
+	            } else {
+	                document.getElementById("button-app").setAttribute('onclick', 'updateApp("' + x + '", ' + (y + 1) + ', "' + x + '", ' + y + ')');
+	            }
+	        } else {
+	            document.getElementById("button-main").style.display = "none";
+	        }
+
+	    } else {
+	        if (getCookie("taskTime") == "") {
+	            createCookie("taskTime", 0, 1);
+	        }
+	        taskTime = setInterval(function() {
+	            createCookie("taskTime", parseInt(getCookie("taskTime")) + 1, 1);
+	        }, 1000);
+	        clearInput();
+	        document.getElementById('tip-a').setAttribute('onclick', 'showTip("' + obj[x][y]["tip"] + '")');
+	        setTimeout(function() {
+	            document.getElementById('tip-a-div').style.display = "block";
+	        }, 1000 * 60);
+	        document.getElementById("input-app").readOnly = false;
+	        document.getElementById("input-app").value = "";
+	        document.getElementById("input-app").style.display = "block";
+	        document.getElementById("button-main").style.display = "block";
+	        document.getElementById("button-text").innerHTML = "Sprawdź";
+	        document.getElementById("title").innerHTML = obj[x][y]['title'];
+	        document.getElementById("description").innerHTML = obj[x][y]['question'];
+	        document.getElementById("img-task").style.display = "block";
+	        document.getElementById("img-way").style.display = "none";
+	        document.getElementById("img-task").src = "./img/" + obj[x][y]['img'];
+	        if (obj[x][y]["img-res"]) {
+	            document.getElementById("img-task").setAttribute('res', obj[x][y]["img-res"]);
+	        }else{
+	        	document.getElementById("img-task").setAttribute('res', obj[x][y]["img"]);
+	        }
+	        document.getElementById("button-app").setAttribute('onclick', 'checkAnswer("' + obj[x][y]["answer"] + '", ' + (y + 1) + ', 0)');
+	    }
+	    if(obj[x][y]["nextCategory"]){
+	    	document.getElementById("load-img").src = "img/" + obj[obj[x][y]["nextCategory"]][obj[x][y]["next"]]["img"];
+	    }else if(!obj[y+1] & x == "tasks"){
+	    	document.getElementById("load-img").src = "";
+	    }else if(x == "tasks"){
+	    	document.getElementById("load-img").src = "img/" + obj[y+1][0]["img"];
+	    }
+	    else{
+	    	document.getElementById("load-img").src = "img/" + obj[x][y+1]["img"];
+	    }
+	    
+	}
+
+	function checkAnswer(a, x, y) {
+	    if (document.getElementById("input-app").value == a) {
+	        document.getElementById("input-app").style.border = "2px solid rgb(68 255 7)";
+	        document.getElementById("input-app").style.boxShadow = "0px 0px 24px 0px rgba(35, 241, 21, 1)";
+	        document.getElementById("input-app").readOnly = true;
+	        document.getElementById("button-text").innerHTML = "Dalej";
+	        if (obj[x]) {
+	            document.getElementById("button-app").setAttribute('onclick', 'updateApp("' + x + '", ' + y + ')');
+	        } else {
+	            document.getElementById("button-app").setAttribute('onclick', 'endApp()');
+	        }
+	        if(getCookie("lastStep") == ""){
+	        	createCookie("lastStep", 0, 1);
+	        }else{
+	        	createCookie("lastStep", parseInt(getCookie("lastStep")) + 1, 1);
+	        }
+	        
+	    } else {
+	        document.getElementById("input-app").style.border = "2px solid rgb(241, 21, 21)";
+	        document.getElementById("input-app").style.boxShadow = "0px 0px 24px 0px rgba(241, 21, 21, 1)";
+	    }
+	}
+
+	function endApp() {
+	    var globalTimeInt = parseInt(getCookie("globalTime"));
+	    var taskTimeInt = parseInt(getCookie("taskTime"));
+	    document.getElementById("end-div").innerHTML = "Twój czas w grze to: " + Math.round(globalTimeInt / (60 * 60) * 100) / 100 + "H, czyli " + Math.round(globalTimeInt / (60)) + "min, czyli " + Math.round(globalTimeInt) + "s.</br>" + "Czas, który poświęciłeś na zadania to: " + Math.round(taskTimeInt / (60 * 60) * 100) / 100 + "H, czyli " + Math.round(taskTimeInt / (60)) + "min, czyli " + Math.round(taskTimeInt) + "s.</br> Czas w zadaniach stanowią " + Math.round((taskTimeInt / globalTimeInt) * 100) + "% Twojego całego czasu.</br>Podczas naszej wycieczki przeszedłeś 4,46km, czyli 4 459m, czyli 2,77mi, czyli 14 631ft.";
+	    document.getElementById("tasks").style.opacity = 0;
+	    setTimeout(function() {
+	        document.getElementById("tasks").style.display = "none";
+	        document.getElementById("thank-you-div").style.display = "block";
+	        setTimeout(function() {
+	            document.getElementById("thank-you-div").style.opacity = 1;
+	        }, 100);
+	    }, 1000);
+	}
+
+	var modal = document.getElementById('myModal');
+	var img = document.getElementById('img-task');
+	var modalImg = document.getElementById("img01");
+	var captionText = document.getElementById("caption");
+	img.onclick = function() {
+	    modal.style.display = "block";
+	    if (this.hasAttribute('res')) {
+	        modalImg.src = "./img/" + this.getAttribute('res');
+	    } else {
+	        modalImg.src = this.src;
+	    }
+	}
+
+	modal.onclick = function() {
+	    img01.className += " out";
+	    setTimeout(function() {
+	        modal.style.display = "none";
+	        img01.className = "modal-content";
+	    }, 400);
+
+	}
+
+
+	function clearInput() {
+	    document.getElementById("input-app").style.border = "2px solid white";
+	    document.getElementById("input-app").style.boxShadow = "none";
+	}
+
+	function showTip(x) {
+		document.getElementById("tip").style.display = "block";
+	    document.getElementById("tip").innerHTML = "Wskazówka: " + x;
+	    document.getElementById("tip-a-div").style.display = "none";
+	}
+
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
