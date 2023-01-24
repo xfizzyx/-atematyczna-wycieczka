@@ -10,22 +10,89 @@
 			"tip": "Skorzystaj z spirali fibonacciego..."
 		},
 		{
-			"title": "Willa &quot;Niespodzianka&quot;",
-			"question": "Willa &quot;Niespodzianka&quot; stojąca obok grodziskiego ratusza, została zaprojektowana przez Józefa Moszyńskiego, który chcąc sprawić swojej siostrze i matce niespodziankę, wybudował tę konstrukcję. Oblicz, w którym roku został wzniesiony ten budynek, wiedząc, że jest on równy rozwiązaniu powyższemu wyrażenia.<img src='img/task.png'/>",
-			"answer": "1903",
-			"location": "https://goo.gl/maps/ZHLkTSGuFSshMPZz6",
+			"title": "Plac wolności",
+			"question": "Pomnik &quot;Wolności i Zwycięstwa&quot; powstał w związku z odzyskaniem niepodległości przez Polskę. W dwudziestoleciu międzywojennym pomnik był miejscem uroczystości patriotycznych. Pierwszego dnia II wojny światowej pomnik został zniszczony wskutek bombardowania przez Luftwaffe. Wiedząc, że <math display='inline'><msup><mi>a</mi><mn>b</mn></msup><mo>=</mo><mn>343</mn></math>, <math display='inline'><msup><mi>b</mi><mn>c</mn></msup><mo>=</mo><mn>10</mn></math>, a <math display='inline'><msup><mi>a</mi><mn>c</mn></msup><mo>=</mo><mn>7</mn></math>, oblicz rok odbudowania pomnika wolności, który jest wyrażony wzorem <math><mn>2</mn><mo>&#x2062;</mo><msup><mi>b</mi><mi>b</mi></msup><mo>&#x2212;</mo><msup><mn>2</mn><mn>4</mn></msup></math>",
+			"answer": "1984",
+			"location": "https://goo.gl/maps/JvgpFLNeJZMhYQq87",
+			"img": "placwolnosci.png",
+			"img-res": "placwolnosci-res.png"
+		},
+		{
+			"title": "Kino",
+			"question": "Willa &quot;Niespodzianka&quot; stojąca obok grodziskiego ratusza, została zaprojektowana przez Józefa Moszyńskiego, który chcąc sprawić swojej siostrze i matce niespodziankę, wybudował tę konstrukcję. Oblicz, w którym roku został wzniesiony ten budynek, wiedząc, że jest on równy rozwiązaniu poniższego wyrażenia.<img src='img/task.png'/>",
+			"answer": "1",
+			"location": "https://goo.gl/maps/4TBi7VoUCgPVhMAG6",
 			"img": "willaniespodzianka.png",
 			"img-res": "willaniespodzianka-res.png"
+		},
+		{
+			"title": "Ratusz",
+			"question": "Jest godzina 12, ile conajmniej czasu musisz poczekać, aby wskazówka godzinowa oraz minutowa zegara znajdowała się w jednakowej odległości od cyfry 12. Podaj minuty i sekundy.",
+			"answer": "55 23",
+			"answer2": "55min 23s",
+			"tip": "Przypomnij sobie wzór na kąt w ruchu po okręgu.",
+			"location": "https://goo.gl/maps/UjMQH6MiwXS5eF6T6",
+			"img": "willaniespodzianka.png",
+			"img-res": "ratusz.png"
+		},
+		{
+			"title": "Willa &quot;Radogoszcz&quot;",
+			"question": "Elegancki pałacyk powstał prawdopodobnie na zlecenie Zacharija Putiato, naczelnika powiatu sochaczewskiego, z przeznaczeniem na letnią rezydencję carskiego urzędnika. W latach międzywojennych budynek często zmieniał właścicieli, którzy nadawali mu rozmaite nazwy. Odzyskany przez władze miejskie budynek został przekazany Ośrodkowi Kultury, który organizuje zajęcia dla młodzieży. W listopadzie 2019 r. w Radogoszczy ruszyło Kino Wolność, należące do sieci kin studyjnych i lokalnych. Oblicz, w którym roku został wzniesiony ten budynek, wiedząc, że jest on równy rozwiązaniu poniższego wyrażenia: <img src='img/task.png'/>",
+			"answer": "1889",
+			"location": "https://goo.gl/maps/YvtLnPetLygKQH1eA",
+			"img": "radogoszcz.png",
+			"img-res": "radogoszcz-res.png"
+		},
+		{
+			"title": "WKD",
+			"question": "12 minut po wyjeżdzie pociągu WKD, zepsuł się jeden z trzech silników elektrycznych pociągu. Na skutek czego pociąg zaczął jechać z prędkością równą <math><mfrac><mn>2</mn><mn>3</mn></mfrac></math> prędkości początkowej. Przez awarię na stację Radońska przyjechał z 10 minutowym opóźnieniem. Jeżeli silnik przestałby działać 10km dalej, pociąg przyjechałby 5min szybciej. Ile wynosi całkowita długość trasy kolei WKD?",
+			"answer": "32",
+			"answer2": "32km",
+			"tip": "Zacznij od obliczenia prędkości, wykorzystując jedyny podany dystans.",
+			"location": "https://goo.gl/maps/NFdTbgdcZNJEYw8N6",
+			"img": "wkd.png",
+			"img-res": "wkd-res.png"
+		},
+		{
+			"title": "Stawy Walczewskiego",
+			"question": "Dziecko w trakcie lata nurkowało przy plaży na Stawach Walczewskiego. Ile czasu spędziło ono pod wodą do momentu, gdy skończyło się mu powietrze, jeśli objętość jego płuc wynosiła 2 litry, lecz przy wdechu przed zanurzeniem płuca wypełniły się tylko w 80% i jeżeli z każdą sekundą spędzoną pod wodą dziecku stale ubywało 0,025 litra powietrza, a także wiedząc, że po 10 sekundach nurkowania specjalnie ono wypuściło 1/3 powietrza, które znajdowało się w tamtym momencie w płucach? Należy przyjąć, że dziecko natychmiast po wdechu, zanurzyło się. Odpowiedź podaj w sekundach.",
+			"answer": "46",
+			"location": "https://goo.gl/maps/hW2S8CnLjaQU3GN58",
+			"img": "stawy-walczewskiego.png",
+			"tip": "Aby obliczyć objętość płuc w danym momencie, można posłużyć się wzorem na prędkość ciała w ruchu jednostajnie opóźnionym prostoliniowym, gdzie zamiast prędkości należy wstawić objętość płuc dziecka, a zamiast przyspieszenia - tempo ubywania powietrza."
+		},
+		{
+			"title": "Stawy Goliana",
+			"question": "Na Stawach Goliana pewnego dnia wyrosła lilia. Kwiat ten szybko się rozmnożył i już po 24h obok niego wyrósł następny. Kolejnego dnia kwiaty ponownie się rozmnożyły, tak że ich liczba się podwoiła. W ten sam sposób ich liczba stałe się podwajała z dnia na dzień, aż zapełniły one całą powierzchnię stawu. W którym dniu lilie stanowiły 1/128 tafli wody, jeśli staw został zarośnięty 19 dnia?",
+			"answer": "12",
+			"location": "https://goo.gl/maps/8PyHkHuHWuTBN63w6",
+			"img": "golian.png",
+			"tip": "Aby obliczyć objętość płuc w danym momencie, można posłużyć się wzorem na prędkość ciała w ruchu jednostajnie opóźnionym prostoliniowym, gdzie zamiast prędkości należy wstawić objętość płuc dziecka, a zamiast przyspieszenia - tempo ubywania powietrza."
+		},
+		{
+			"title": "Szkoła muzyczna",
+			"question": "Okres fali dźwiękowej odpowiada okresowi funkcji <math><mi>sin</mi><mfenced><mrow><mo>(</mo><mn>2000</mn><mo>&#x2062;</mo><mi>&pi;</mi><mo>&#x2062;</mo><mi>x</mi><mo>)</mo></mrow></mfenced></math>. Fala dźwiękowa odbiła się od ścian 3 razy, zanim trafiła do ucha słuchacza, zmniejszając o 10% swoją częstotliwości z każdym zderzeniem. Jaką częstotliwość odebrał słuchacz? Odpowiedź podaj w Hz.",
+			"answer": "729",
+			"answer2": "729Hz",
+			"location": "https://goo.gl/maps/DRAKaZLA5wJExYqf8",
+			"img": "szkolamuzyczna.png"
+		},
+		{
+			"title": "Park Skarbków",
+			"question": "Oblicz pojemność tężni, wiedząc, że ma kształt graniastosłupa prawidłowego dziesięciokątnego o polu podstawy <math><mn>48</mn></math>m<math><msup><mi></mi><mn>2</mn></msup></math> i wysokości <math><msup><mi>0,5</mi><mn>-3</mn></msup></math>m. Górna część jest ostrosłupem prawidłowym dziesięciokątnym, którego krawędź dachu ma <math><msub><mi>log</mi><mrow><mn>2</mn><mroot><mi>2</mi><mn>4</mn></mroot></mrow></msub><mo>64</mo><msqrt><mi>2</mi></msqrt></math>m, a kąt nachylenia krawędzi dachu do płaszczyzny podstawy tego ostrosłupa to 30&deg;.",
+			"answer": "425,6m^3",
+			"answer2": "425,6",
+			"location": "https://goo.gl/maps/RcNS1BpLbGjZTWbD8",
+			"img": "teznia.png"
 		}
 	],
 	"0": [
 		{
 			"title": "Udaj się do tego punktu",
-			"description": "Jeżeli potrzebujesz pomocy w dotarciu do tego punktu <a href='https://goo.gl/maps/gRCPUPCPnTJAfV5bA' target='_blank'>kliknij tutaj!</a>",
+			"description": "Udaj się pod pomnik Józefa Chełmońskiego.",
 			"img": "1.png",
-			"nextCategory": "tasks",
-			"next": 0,
-			"button": 1
+			"button": 1,
+			"maps-link": "https://goo.gl/maps/ZJKyrETt6sgaAbde7"
 		}
 	],
 	"1": [
@@ -33,24 +100,206 @@
 			"title": "Udaj się do tego punktu",
 			"description": "Podążaj deptakiem do skrzyżowania (150m).",
 			"img": "2.png",
-			"cords": "188, 225, 20",
+			"cords": "188, 225, 30",
 			"maps-link": "https://goo.gl/maps/75j5ruc8fHhXi4EK9"
 		},
 		{
 			"title": "Udaj się do tego punktu",
 			"description": "Idź dalej do następnego skrzyżowania. (250m)",
 			"img": "3.png",
-			"cords": "202, 220, 20",
+			"cords": "202, 220, 30",
 			"maps-link": "https://goo.gl/maps/9bACYbhUABxWkGpc8"
 		},
 		{
 			"title": "Udaj się do tego punktu",
 			"description": "Plac, który widzisz przed sobą to Plac Wolności.",
 			"img": "4.png",
-			"nextCategory": "tasks",
 			"maps-link": "https://goo.gl/maps/WDMYskGm4tqFzCsBA",
-			"cords": "200, 210, 20",
-			"next": 1
+			"cords": "200, 210, 30"
+		}
+	],
+	"2": [
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Udaj się ul. Spółdzielną (100m).",
+			"img": "5.png",
+			"cords": "196, 216, 30",
+			"maps-link": "https://goo.gl/maps/rjxLKtxs1EEkj6dSA"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Podejdź bliżej kina.",
+			"img": "6.png",
+			"cords": "260, 205, 30",
+			"maps-link": "https://goo.gl/maps/q1pdWbc9hLx88B8g8"
+		}
+	],
+	"3": [
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Idź dalej wzdłuż parkingu, aż dotrzesz do ul. Tadeusza Kościuszki.",
+			"img": "7.png",
+			"cords": "235, 350, 120",
+			"maps-link": "https://goo.gl/maps/URVEWnibEHhrpzWp7"
+		}
+	],
+	"4": [
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Podążaj ul. Tadeusza Kościuszki do skrzyżowania.",
+			"img": "8.png",
+			"cords": "204, 180, 25",
+			"maps-link": "https://goo.gl/maps/FNBARNAcRDE5RvQa9"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Przejdź przez skrzyżowanie na drugą stronę.",
+			"img": "9.png",
+			"cords": "166, 210, 25",
+			"maps-link": "https://goo.gl/maps/uR23UWxgMLk6ck9w6"	
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Idź ul. Radońską do pierwszej ulicy w lewo. (50m)",
+			"img": "10.png",
+			"cords": "214, 211, 26",
+			"maps-link": "https://goo.gl/maps/DzPJk6Z7v21m69nr7"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Przejdź obok muralu &quot;Pędząca WKD&quot;. (40m)",
+			"img": "11.png",
+			"cords": "176, 222, 30",
+			"maps-link": "https://goo.gl/maps/VSmXKHx1jv3RJ7s47"
+		}
+	],
+	"5": [
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Przejdź chodnikiem spowrotem na ul. Radońską.",
+			"img": "12.png",
+			"cords": "240, 190, 20",
+			"maps-link": "https://goo.gl/maps/cPp8xXhT5EmS3rfq9"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Idź ul. Radońską do końca cmentarza.",
+			"img": "13.png",
+			"cords": "196, 160, 20",
+			"maps-link": "https://goo.gl/maps/iB42rJwGT7AtL2qa8"
+		}
+	],
+	"6": [
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Pozostań na ul. Radońską, idź dalej do pierwszego skrzyżowania.",
+			"img": "14.png",
+			"cords": "210, 196, 25",
+			"maps-link": "https://goo.gl/maps/omi7pUwbyibzWPKh8"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Na skrzyżowaniu skręć w lewo i idź prosto.",
+			"img": "15.png",
+			"cords": "46, 167, 25",
+			"maps-link": "https://goo.gl/maps/YmV8izLeBRc8BPey9"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Skręć w pierwszą ulicę w lewo.",
+			"img": "16.png",
+			"cords": "32, 188, 25",
+			"maps-link": "https://goo.gl/maps/Aj64JFEA2ncNjkSz9"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Podążaj ul. Piękną.",
+			"img": "17.png",
+			"cords": "260, 182, 30",
+			"maps-link": "https://goo.gl/maps/YuaAVXtAiWFiNiWG9"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Na skrzyżowaniu idź ciągle prosto.",
+			"img": "18.png",
+			"cords": "232, 202, 25",
+			"maps-link": "https://goo.gl/maps/RW4nsv51TuWUEZbU9"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Skręć w prawo na Stawy Walczewskiego.",
+			"img": "19.png",
+			"cords": "272, 167, 30",
+			"maps-link": "https://goo.gl/maps/oV4xBhamX7k4eDzs8"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Na stawach udaj się w kierunku &quot;Totemu zwierząt&quot;, czyli najwyższemu totemowi w Polsce, który mierzy 9 metrów.",
+			"img": "20.png",
+			"cords": "35, 177, 20",
+			"maps-link": "https://goo.gl/maps/eDhcYARiG6xMR9P26"
+		}
+	],
+	"7":[
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Przejdź przez parking przy boisku do koszykówki, skręć w lewo i idź ul. Nadarzyńską.",
+			"img": "21.png",
+			"cords": "276, 191, 30",
+			"maps-link": "https://goo.gl/maps/vRTZNyDGLoqHYYbXA"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Przejdź przez tory WKD i idź dalej do skrzyżowania.",
+			"img": "22.png",
+			"cords": "212, 212, 30",
+			"maps-link": "https://goo.gl/maps/EifNeofL9J6wXPHV6"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Za biedronką skręć w lewo, najlepiej przejdź przez pasy na drugą stronę ul. Henryka Sienkiewicza.",
+			"img": "23.png",
+			"cords": "193, 197, 20",
+			"maps-link": "https://goo.gl/maps/mXTH6o3aF7nivUdTA"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Za Mostkiem skręć w prawo.",
+			"img": "24.png",
+			"cords": "355, 204, 30",
+			"maps-link": "https://goo.gl/maps/MJZYLkBTjK3Wjykb7"
+		}
+	],
+	"8":[
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Przejdź spowrotem przez most i przejdź ul. Parkową do ul. Gen. Leopolda Okulickiego.",
+			"img": "25.png",
+			"cords": "222, 210, 20",
+			"maps-link": "https://goo.gl/maps/nEa4owytwvHdmzow5"
+		}
+	],
+	"9":[
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Podążaj ul. Gen. Leopolda Okulickiego.",
+			"img": "26.png",
+			"cords": "134, 200, 20",
+			"maps-link": "https://goo.gl/maps/ejgqZohpPwv3Exfa8"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Podążaj ul. Gen. Leopolda Okulickiego, mijając mural &quot;Orkiestra Dęta&quot;",
+			"img": "27.png",
+			"cords": "139, 200, 20",
+			"maps-link": "https://goo.gl/maps/72MQELSLsWtZhY9YA"
+		},
+		{
+			"title": "Udaj się do tego punktu",
+			"description": "Na skrzyżowaniu wejdź do Parku Skarbków.",
+			"img": "28.png",
+			"cords": "92, 201, 20",
+			"maps-link": "https://goo.gl/maps/wZgcogrTkeMF87tw5"
 		}
 	]
 }

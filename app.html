@@ -266,11 +266,11 @@
          background-color: rgb(0,0,0);
          background-color: rgba(0,0,0,0.9);
          }
-         .modal-content {
+         .modal-content-img {
          margin: auto;
          display: block;
-         width: 75%;
-         //max-width: 75%;
+         max-width: 90%;
+         max-height: 90%;
          }
          #caption {
          margin: auto;
@@ -282,7 +282,7 @@
          padding: 10px 0;
          height: 150px;
          }
-         .modal-content, #caption {
+         .modal-content-img, #caption {
          -webkit-animation-name: zoom;
          -webkit-animation-duration: 0.6s;
          animation-name: zoom;
@@ -320,7 +320,7 @@
          cursor: pointer;
          }
          @media only screen and (max-width: 700px){
-         .modal-content {
+         .modal-content-img {
          width: 100%;
          }
          }
@@ -351,7 +351,7 @@
          color: white;
          font-weight: bold;
          }
-         #end-div{
+         #end-div, .end-div{
          font-weight: 300;
          }
          #tip-a-div{
@@ -423,7 +423,8 @@
             </div>
          </div>
          <div id="thank-you-div" class="col-11 col-md-6 col-lg-4">
-            <h1>Dziękujemy!</h1>
+            <h1>Koniec!</h1>
+            <div class="end-div">Dziękujemy za wspólną podróż, mamy nadzieję, że nauczyliście się dużo nowych rzeczy, jednocześnie poznając piękno Grodziska Mazowieckiego.</div>
             <div id="end-div"></div>
             <div id="button-end">
                <div class="border"></div>
@@ -433,7 +434,7 @@
             </div>
          </div>
          <div id="myModal" class="modal">
-            <img class="modal-content" id="img01">
+            <img class="modal-content-img" id="img01">
          </div>
          <img id="load-img" style="display: none;"/>
       </div>
@@ -450,9 +451,6 @@
              if (getCookie("globalTime") == "") {
                  createCookie("globalTime", 0, 1);
              }
-             let globalTime = setInterval(function() {
-                 createCookie("globalTime", parseInt(getCookie("globalTime")) + 1, 1);
-             }, 1000);
          
              if(getCookie("lastStep") != ""){
              	updateApp(parseInt(getCookie("lastStep"))+1, 0);
@@ -565,7 +563,13 @@
          
          var obj;
          var task;
+         var o;
+         var tipTimeOut;
          var taskTime;
+
+         const globalTime = setInterval(function() {
+         	createCookie("globalTime", parseInt(getCookie("globalTime")) + 1, 1);
+         }, 1000);
          
          fetch('./plan.json')
              .then(res => res.json())
@@ -575,6 +579,11 @@
          
          
          function updateApp(x, y, ox, oy) {
+         	if(tipTimeOut){
+			    clearTimeout(tipTimeOut);
+			    tipTimeOut = null;
+			}
+         	clearTimeout(tipTimeOut);
          	document.getElementById("tip").style.display = "none";
              document.getElementById('tip-a-div').style.display = "none";
              if (y == 0 & x != "tasks") {
@@ -590,6 +599,11 @@
                  document.getElementById("back-icon-a").setAttribute('onclick', 'updateApp("' + ox + '", ' + oy + ", " + ox + ", " + (y - 2) + ')');
              }
              if (x != "tasks") {
+             	if(taskTime){
+				    clearTimeout(taskTime);
+				    taskTime = null;
+				}
+             	clearInterval(taskTime);
                  document.getElementById("title").innerHTML = obj[x][y]['title'];
                  if (obj[x][y]['maps-link']) {
                      document.getElementById("description").innerHTML = obj[x][y]['description'] + "</br>Nie wiesz gdzie iść? <a target='_blank' href='" + obj[x][y]['maps-link'] + "'>Kliknij tu</a>";
@@ -605,8 +619,8 @@
                      document.getElementById("img-area").coords = obj[x][y]['cords'];
          
                      $('area').on('click', function() {
-                         if (obj[x][y]["nextCategory"]) {
-                             updateApp(obj[x][y]['nextCategory'], obj[x][y]['next'], x, y);
+                         if (!obj[x][y+1]) {
+                             updateApp("tasks", x, x, y);
                          } else {
                              updateApp(x, y + 1, x, y);
                          }
@@ -617,8 +631,8 @@
                  if (obj[x][y]["button"] == 1) {
                      document.getElementById("button-text").innerHTML = "Dotarłem";
                      document.getElementById("button-main").style.display = "block";
-                     if (obj[x][y]["nextCategory"]) {
-                         document.getElementById("button-app").setAttribute('onclick', 'updateApp("' + obj[x][y]['nextCategory'] + '", ' + obj[x][y]['next'] + ', "' + x + '", ' + y + ')');
+                     if (!obj[x][y+1]) {
+                         document.getElementById("button-app").setAttribute('onclick', 'updateApp("tasks", ' + x + ', "' + x + '", ' + y + ')');
                      } else {
                          document.getElementById("button-app").setAttribute('onclick', 'updateApp("' + x + '", ' + (y + 1) + ', "' + x + '", ' + y + ')');
                      }
@@ -630,16 +644,19 @@
                  if (getCookie("taskTime") == "") {
                      createCookie("taskTime", 0, 1);
                  }
+                 if(taskTime){
+				    clearTimeout(taskTime);
+				    taskTime = null;
+				}
                  taskTime = setInterval(function() {
                      createCookie("taskTime", parseInt(getCookie("taskTime")) + 1, 1);
                  }, 1000);
                  clearInput();
                  if(obj[x][y]["tip"]){
-                 	console.log(obj[x][y]["tip"]);
          			document.getElementById('tip-a').setAttribute('onclick', 'showTip("' + obj[x][y]["tip"] + '")');
-         	        setTimeout(function() {
+         	        tipTimeOut = setTimeout(function() {
          	            document.getElementById('tip-a-div').style.display = "block";
-         	        }, 1000 * 10);
+         	        }, 1000 * 60);
                  }
                  document.getElementById("input-app").readOnly = false;
                  document.getElementById("input-app").value = "";
@@ -656,23 +673,27 @@
                  }else{
                  	document.getElementById("img-task").setAttribute('res', obj[x][y]["img"]);
                  }
-                 document.getElementById("button-app").setAttribute('onclick', 'checkAnswer("' + obj[x][y]["answer"] + '", ' + (y + 1) + ', 0)');
+                 if(obj[x][y]["answer2"]){
+                 	document.getElementById("button-app").setAttribute('onclick', 'checkAnswer("' + obj[x][y]["answer"] + '", ' + (parseInt(y) + 1) + ', 0, "' + obj[x][y]["answer2"] + '")');
+                 }else{
+                 	document.getElementById("button-app").setAttribute('onclick', 'checkAnswer("' + obj[x][y]["answer"] + '", ' + (parseInt(y) + 1) + ', 0)');
+                 }
              }
-             if(obj[x][y]["nextCategory"]){
-             	document.getElementById("load-img").src = "img/" + obj[obj[x][y]["nextCategory"]][obj[x][y]["next"]]["img"];
-             }else if(!obj[y+1] & x == "tasks"){
+             if(!obj[x][parseInt(y)+1] & x != "tasks"){
+             	document.getElementById("load-img").src = "img/" + obj["tasks"][x]["img"];
+             }else if(!obj[parseInt(y)+1] & x == "tasks"){
              	document.getElementById("load-img").src = "";
              }else if(x == "tasks"){
-             	document.getElementById("load-img").src = "img/" + obj[y+1][0]["img"];
+             	document.getElementById("load-img").src = "img/" + obj[parseInt(y)+1][0]["img"];
              }
              else{
-             	document.getElementById("load-img").src = "img/" + obj[x][y+1]["img"];
+             	document.getElementById("load-img").src = "img/" + obj[x][parseInt(y)+1]["img"];
              }
              
          }
          
-         function checkAnswer(a, x, y) {
-             if (document.getElementById("input-app").value == a) {
+         function checkAnswer(a, x, y, o) {
+             if (document.getElementById("input-app").value == a || document.getElementById("input-app").value == o) {
              	clearInterval(taskTime);
              	document.getElementById("input-app").classList.remove("incorrect");
              	document.getElementById("input-app").classList.add("correct");
@@ -727,7 +748,7 @@
              img01.className += " out";
              setTimeout(function() {
                  modal.style.display = "none";
-                 img01.className = "modal-content";
+                 img01.className = "modal-content-img";
              }, 400);
          
          }
