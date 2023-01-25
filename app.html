@@ -444,30 +444,27 @@
          <img id="load-img" style="display: none;"/>
       </div>
       <script type="text/javascript">
-
-      	if(getCookie("team") != ""){
-	         if(getCookie("team") == "2"){
-	         	fetch('./plan_2.json')
-	             .then(res => res.json())
-	             .then(data => {
-	                 obj = data;
-	             });
-	         }else{
-				fetch('./plan_1.json')
-	             .then(res => res.json())
-	             .then(data => {
-	                 obj = data;
-	             });
-	         }
-	     }
-      	
          window.addEventListener("load", (event) => {
              history.pushState("", document.title, window.location.pathname + window.location.search);
              if (getCookie("team") == "") {
                  document.getElementById("choose-mode").style.opacity = 1;
                  document.getElementById("tasks").style.display = "none";
              } else {
-                 updateApp("0", 0);
+             	if(getCookie("team") == "2"){
+		         	fetch('./plan_2.json')
+		             .then(res => res.json())
+		             .then(data => {
+		                 obj = data;
+		                 updateApp("0", 0);
+		             });
+		         }else{
+					fetch('./plan_1.json')
+		             .then(res => res.json())
+		             .then(data => {
+		                 obj = data;
+		                 updateApp("0", 0);
+		             });
+		         }
                  document.getElementById("tasks").style.opacity = 1;
              }
              if (getCookie("globalTime") == "") {
@@ -610,6 +607,7 @@
          const globalTime = setInterval(function() {
          	createCookie("globalTime", parseInt(getCookie("globalTime")) + 1, 1);
          }, 1000);
+         
 
          function updateApp(x, y, ox, oy) {
          	if(tipTimeOut){
