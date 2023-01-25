@@ -34,7 +34,7 @@
 		},
 		{
 			"title": "WKD",
-			"question": "12 minut po wyjeżdzie pociągu WKD, zepsuł się jeden z trzech silników elektrycznych pociągu. Na skutek czego pociąg zaczął jechać z prędkością równą <math><mfrac><mn>2</mn><mn>3</mn></mfrac></math> prędkości początkowej. Przez awarię na stację Radońska przyjechał z 10 minutowym opóźnieniem. Jeżeli silnik przestałby działać 10km dalej, pociąg przyjechałby 5min szybciej. Ile wynosi całkowita długość trasy kolei WKD?",
+			"question": "12 minut po wyjeździe pociągu WKD, zepsuł się jeden z trzech silników elektrycznych pociągu. Na skutek czego pociąg zaczął jechać z prędkością równą <math><mfrac><mn>2</mn><mn>3</mn></mfrac></math> prędkości początkowej. Przez awarię na stację Radońska przyjechał z 10 minutowym opóźnieniem. Jeżeli silnik przestałby działać 10km dalej, pociąg przyjechałby 5min szybciej. Ile wynosi całkowita długość trasy kolei WKD?",
 			"answer": "32",
 			"answer2": "32km",
 			"tip": "Zacznij od obliczenia prędkości, wykorzystując jedyny podany dystans.",
