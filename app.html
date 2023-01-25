@@ -374,6 +374,10 @@
          -moz-box-shadow: 0px 0px 24px 0px rgba(241, 21, 21, 1);
          box-shadow: 0px 0px 24px 0px rgba(241, 21, 21, 1);
          }
+         #task-location, #task-location a{
+         	text-align: center;
+         	text-decoration: none;
+         }
       </style>
    </head>
    <body>
@@ -395,17 +399,18 @@
          <div id="tasks" class="col-11 col-md-6 col-lg-4">
             <div id="stop-game">
                <div id="back-icon" style="text-align: left">
-                  <a id="back-icon-a" onclick="deleteAllCookies();">
+                  <a id="back-icon-a" onclick="">
                   <i class="icon-left-open"></i>
                   </a>
                </div>
                <div id="x-icon" style="text-align: right">
-                  <a onclick="deleteAllCookies();">
+                  <a onclick="confirmEnd();">
                   <i class="icon-cancel"></i>
                   </a>
                </div>
             </div>
             <div id="title"></div>
+            <div id="task-location" style="display: none;"></div>
             <img id="img-task" style="max-width: 90%;">
             <img id="img-way" style="max-width: 90%;" usemap="#point">
             <map id="point" name="point">
@@ -474,21 +479,39 @@
          
          if (document.getElementById("option-1").addEventListener) {
              document.getElementById("option-1").addEventListener("click", function() {
-                 nextModal(1);
+             	document.getElementById("choose-mode").style.opacity = 0;
+             	fetch('./plan_1.json')
+	             .then(res => res.json())
+	             .then(data => {
+	                 obj = data;
+	                 nextModal(1);
+	             });
                  createCookie("team", "0", 1);
              });
          }
          
          if (document.getElementById("choose-team-1").addEventListener) {
              document.getElementById("choose-team-1").addEventListener("click", function() {
-                 nextModal(1);
+             	document.getElementById("choose-mode").style.opacity = 0;
+             	fetch('./plan_1.json')
+	             .then(res => res.json())
+	             .then(data => {
+	                 obj = data;
+	                 nextModal(1);
+	             });
                  createCookie("team", "1", 1);
              });
          }
          
          if (document.getElementById("choose-team-2").addEventListener) {
              document.getElementById("choose-team-2").addEventListener("click", function() {
-                 nextModal(1);
+             	document.getElementById("choose-mode").style.opacity = 0;
+             	fetch('./plan_2.json')
+	             .then(res => res.json())
+	             .then(data => {
+	                 obj = data;
+	                 nextModal(1);
+	             });
                  createCookie("team", "2", 1);
              });
          }
@@ -571,13 +594,22 @@
          	createCookie("globalTime", parseInt(getCookie("globalTime")) + 1, 1);
          }, 1000);
          
-         fetch('./plan.json')
-             .then(res => res.json())
-             .then(data => {
-                 obj = data;
-             });
-         
-         
+         if(getCookie("team") != ""){
+	         if(getCookie("team") == "2"){
+	         	fetch('./plan_2.json')
+	             .then(res => res.json())
+	             .then(data => {
+	                 obj = data;
+	             });
+	         }else{
+				fetch('./plan_1.json')
+	             .then(res => res.json())
+	             .then(data => {
+	                 obj = data;
+	             });
+	         }
+	     }
+
          function updateApp(x, y, ox, oy) {
          	if(tipTimeOut){
 			    clearTimeout(tipTimeOut);
@@ -605,6 +637,7 @@
 				}
              	clearInterval(taskTime);
                  document.getElementById("title").innerHTML = obj[x][y]['title'];
+                 document.getElementById("task-location").style.display = "none";
                  if (obj[x][y]['maps-link']) {
                      document.getElementById("description").innerHTML = obj[x][y]['description'] + "</br>Nie wiesz gdzie iść? <a target='_blank' href='" + obj[x][y]['maps-link'] + "'>Kliknij tu</a>";
                  } else {
@@ -657,7 +690,9 @@
          	        tipTimeOut = setTimeout(function() {
          	            document.getElementById('tip-a-div').style.display = "block";
          	        }, 1000 * 60);
-                 }
+                 }             
+                 document.getElementById("task-location").style.display = "block";
+                 document.getElementById("task-location").innerHTML = "<a href='" + obj[x][y]["location"] + "' target='_blank'>Pokaż punkt na mapie</a>";
                  document.getElementById("input-app").readOnly = false;
                  document.getElementById("input-app").value = "";
                  document.getElementById("input-app").style.display = "block";
@@ -763,6 +798,12 @@
          	document.getElementById("tip").style.display = "block";
              document.getElementById("tip").innerHTML = "Wskazówka: " + x;
              document.getElementById("tip-a-div").style.display = "none";
+         }
+
+         function confirmEnd(){
+         	if(confirm("Czy napewno chcesz zakończyć grę?") == true){
+         		deleteAllCookies();
+         	}	
          }
          
          

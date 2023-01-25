@@ -70,7 +70,7 @@
          }
          #img-earth{
          position: fixed;
-         transform: scale(0.6) translate(-100%, -180px);
+         transform: scale(0.6) translate(-50%, 40px);
          animation-name: earth;
          animation-duration: 10s;
          animation-iteration-count: infinite;
@@ -79,7 +79,7 @@
          filter: invert(30%);
          }
          #img-earth-second{
-         transform: scale(0.6) translate(0%, -180px);
+         transform: scale(0.6) translate(50%, 40px);
          position: fixed;
          animation-name: earthsecond;
          animation-duration: 10s;
@@ -89,13 +89,13 @@
          filter: invert(30%);
          }
          @keyframes earth {
-         from {transform: scale(1) translate(-100%); 
+         from {transform: scale(1) translate(-50%, 40px); 
          }
-         to {transform: scale(1) translate(-200%);}
+         to {transform: scale(1) translate(-150%, 40px);}
          }
          @keyframes earthsecond {
-         from {transform: scale(1) translate(0%);}
-         to {transform: scale(1) translate(-100%);}
+         from {transform: scale(1) translate(50%, 40px);}
+         to {transform: scale(1) translate(-50%, 40px);}
          }
          @keyframes glow {
          from {box-shadow: 0px 0px 80px 1px rgba(187, 187, 204, 1);
@@ -189,10 +189,10 @@
          position: absolute;
          z-index: 5;
          top: 0;
-         height: 100vh;
+         height: 100%;
          width: 100%;
          overflow: hidden;
-         perspective: 10vmin;
+         perspective: 80px;
          display: none;
          opacity: 0;
          transition: ease 1s all;
@@ -209,8 +209,8 @@
          position: absolute;
          top: 0%;
          left: 0%;
-         animation:  animate 1.5s infinite ease-in;
-         background: #fff;
+         animation: ease-in animate 1.5s infinite;
+         background-color: #fff;
          box-shadow: 0 0 20px rgb(10, 239, 255);
          }
          @keyframes animate {
@@ -463,7 +463,7 @@
 			    for (let i = 0; i < stars.length; i++) {
 			        let x = `${Math.random() * 200}vmax`;
 			        let y = `${Math.random() * 100}vh`;
-			        let z = `${Math.random() * 200 - 100}vmin`;
+			        let z = `${Math.random() * 200 - 160}vmin`;
 			        let rx = `${Math.random() * 360}deg`;
 			        stars[i].style.setProperty('--x', x);
 			        stars[i].style.setProperty('--y', y);
