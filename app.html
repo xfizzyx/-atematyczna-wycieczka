@@ -444,6 +444,23 @@
          <img id="load-img" style="display: none;"/>
       </div>
       <script type="text/javascript">
+
+      	if(getCookie("team") != ""){
+	         if(getCookie("team") == "2"){
+	         	fetch('./plan_2.json')
+	             .then(res => res.json())
+	             .then(data => {
+	                 obj = data;
+	             });
+	         }else{
+				fetch('./plan_1.json')
+	             .then(res => res.json())
+	             .then(data => {
+	                 obj = data;
+	             });
+	         }
+	     }
+      	
          window.addEventListener("load", (event) => {
              history.pushState("", document.title, window.location.pathname + window.location.search);
              if (getCookie("team") == "") {
@@ -593,22 +610,6 @@
          const globalTime = setInterval(function() {
          	createCookie("globalTime", parseInt(getCookie("globalTime")) + 1, 1);
          }, 1000);
-         
-         if(getCookie("team") != ""){
-	         if(getCookie("team") == "2"){
-	         	fetch('./plan_2.json')
-	             .then(res => res.json())
-	             .then(data => {
-	                 obj = data;
-	             });
-	         }else{
-				fetch('./plan_1.json')
-	             .then(res => res.json())
-	             .then(data => {
-	                 obj = data;
-	             });
-	         }
-	     }
 
          function updateApp(x, y, ox, oy) {
          	if(tipTimeOut){
