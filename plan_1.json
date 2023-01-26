@@ -23,8 +23,7 @@
 			"answer": "12x22",
 			"answer2": "12 x 22",
 			"location": "https://goo.gl/maps/4TBi7VoUCgPVhMAG6",
-			"img": "willaniespodzianka.png",
-			"img-res": "willaniespodzianka-res.png"
+			"img": "kino.png"
 		},
 		{
 			"title": "Ratusz",
@@ -38,7 +37,7 @@
 		},
 		{
 			"title": "Willa &quot;Radogoszcz&quot;",
-			"question": "Elegancki pałacyk powstał prawdopodobnie na zlecenie Zacharija Putiato, naczelnika powiatu sochaczewskiego, z przeznaczeniem na letnią rezydencję carskiego urzędnika. W latach międzywojennych budynek często zmieniał właścicieli, którzy nadawali mu rozmaite nazwy. Odzyskany przez władze miejskie budynek został przekazany Ośrodkowi Kultury, który organizuje zajęcia dla młodzieży. W listopadzie 2019 r. w Radogoszczy ruszyło Kino Wolność, należące do sieci kin studyjnych i lokalnych. Oblicz, w którym roku został wzniesiony ten budynek, wiedząc, że jest on równy rozwiązaniu poniższego wyrażenia:</br><math><mfrac><msup><mn>14</mn><mrow><msub><mi>log</mi><mn>8</mn></msub><mfenced><mrow><mn>8</mn><msqrt><mn>2</mn></msqrt></mrow></mfenced><mo>+</mo><msub><mi>log</mi><mn>8</mn></msub><mfenced><mrow><mn>4</mn><msqrt><mn>2</mn></msqrt></mrow></mfenced></mrow></msup><mrow><mn>7</mn><msqrt><mn>2</mn></msqrt></mrow></mfrac><mo>&#xD7;</mo><msup><mn>2</mn><mrow><mn>2</mn><mo>,</mo><mn>5</mn></mrow></msup><mo>(</mo><msub><mi>log</mi><mn>2</mn></msub><mfenced><mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac></mfenced><mo>-</mo><msub><mi>log</mi><mn>2</mn></msub><mfenced><mfrac><mn>1</mn><mrow><mn>16</mn><msqrt><mn>2</mn></msqrt></mrow></mfrac></mfenced><mo>+</mo><mn>13</mn><mo>)</mo><mo>-</mo><mn>14</mn></math>",
+			"question": "Elegancki pałacyk powstał prawdopodobnie na zlecenie Zacharija Putiato, naczelnika powiatu sochaczewskiego, z przeznaczeniem na letnią rezydencję carskiego urzędnika. W latach międzywojennych budynek często zmieniał właścicieli, którzy nadawali mu rozmaite nazwy. Odzyskany przez władze miejskie budynek został przekazany Ośrodkowi Kultury, który organizuje zajęcia dla młodzieży. W listopadzie 2019 r. w Radogoszczy ruszyło Kino Wolność, należące do sieci kin studyjnych i lokalnych. Oblicz, w którym roku został wzniesiony ten budynek, wiedząc, że jest on równy rozwiązaniu poniższego wyrażenia:</br><math><mfrac><msup><mn>14</mn><mrow><msub><mi>log</mi><mn>8</mn></msub><mfenced><mrow><mn>8</mn><msqrt><mn>2</mn></msqrt></mrow></mfenced><mo>+</mo><msub><mi>log</mi><mn>8</mn></msub><mfenced><mrow><mn>4</mn><msqrt><mn>2</mn></msqrt></mrow></mfenced></mrow></msup><mrow><mn>7</mn><msqrt><mn>2</mn></msqrt></mrow></mfrac><mo>&#xD7;</mo><msup><mn>2</mn><mrow><mn>2</mn><mo>,</mo><mn>5</mn></mrow></msup><mo>(</mo><msub><mi>log</mi><mn>2</mn></msub><mfenced><mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac></mfenced><mo>-</mo><msub><mi>log</mi><mn>2</mn></msub><mfenced><mfrac><mn>1</mn><mrow><mn>16</mn><msqrt><mn>2</mn></msqrt></mrow></mfrac></mfenced><mo>+</mo><mn>13</mn><mo>)</mo><mo>-</mo><mn>15</mn></math>",
 			"answer": "1889",
 			"location": "https://goo.gl/maps/YvtLnPetLygKQH1eA",
 			"img": "radogoszcz.png",
@@ -46,7 +45,7 @@
 		},
 		{
 			"title": "WKD",
-			"question": "12 minut po wyjeździe pociągu WKD, zepsuł się jeden z trzech silników elektrycznych pociągu. Na skutek czego pociąg zaczął jechać z prędkością równą <math><mfrac><mn>2</mn><mn>3</mn></mfrac></math> prędkości początkowej. Przez awarię na stację Radońska przyjechał z 10 minutowym opóźnieniem. Jeżeli silnik przestałby działać 10km dalej, pociąg przyjechałby 5min szybciej. Ile wynosi całkowita długość trasy kolei WKD?",
+			"question": "12 minut po wyjeżdzie pociągu WKD, zepsuł się jeden z trzech silników elektrycznych pociągu. Na skutek czego pociąg zaczął jechać z prędkością równą <math><mfrac><mn>2</mn><mn>3</mn></mfrac></math> prędkości początkowej. Przez awarię na stację Radońska przyjechał z 10 minutowym opóźnieniem. Jeżeli silnik przestałby działać 10km dalej, pociąg przyjechałby 5min szybciej. Ile wynosi całkowita długość trasy kolei WKD?",
 			"answer": "32",
 			"answer2": "32km",
 			"tip": "Zacznij od obliczenia prędkości, wykorzystując jedyny podany dystans.",
@@ -67,8 +66,7 @@
 			"question": "Na Stawach Goliana pewnego dnia wyrosła lilia. Kwiat ten szybko się rozmnożył i już po 24h obok niego wyrósł następny. Kolejnego dnia kwiaty ponownie się rozmnożyły, tak że ich liczba się podwoiła. W ten sam sposób ich liczba stałe się podwajała z dnia na dzień, aż zapełniły one całą powierzchnię stawu. W którym dniu lilie stanowiły 1/128 tafli wody, jeśli staw został zarośnięty 19 dnia?",
 			"answer": "12",
 			"location": "https://goo.gl/maps/8PyHkHuHWuTBN63w6",
-			"img": "golian.png",
-			"tip": "Aby obliczyć objętość płuc w danym momencie, można posłużyć się wzorem na prędkość ciała w ruchu jednostajnie opóźnionym prostoliniowym, gdzie zamiast prędkości należy wstawić objętość płuc dziecka, a zamiast przyspieszenia - tempo ubywania powietrza."
+			"img": "golian.png"
 		},
 		{
 			"title": "Szkoła muzyczna",
